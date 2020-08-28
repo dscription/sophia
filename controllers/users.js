@@ -10,7 +10,6 @@ function index(req, res) {
       res.render('users/index', {
         user: req.user,
         users
-      }),
-      res.status(200).json(users)
+      })
     })
 }

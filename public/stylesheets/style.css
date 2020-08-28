@@ -10,3 +10,14 @@
   padding-top: 20px;
 }
 
+body {
+  background-color: #7e57c2
+}
+
+nav {
+  background-color: #b39ddb
+}
+
+#logo-text {
+  font-family: 'Lobster Two', cursive;
+}
