@@ -29,8 +29,7 @@ function showProfile(req, res) {
 
 function onboarding(req, res) {
   res.render('users/onboarding', {
-    title: onboarding,
+    title: 'onboarding',
     user: req.user
   })
-  console.log('onboarding request object',req)
 }
