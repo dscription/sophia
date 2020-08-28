@@ -6,8 +6,11 @@ module.exports = {
 
 function index(req, res) {
   User.find({})
-  .then(users => {
-    res.render('users/index', { user: req.user, users })
-  })
+    .then(users => {
+      res.render('users/index', {
+        user: req.user,
+        users
+      }),
+      res.status(200).json(users)
+    })
 }
-
