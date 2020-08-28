@@ -3,6 +3,7 @@ var usersCtrl = require('../controllers/users');
 
 // GET /users
 router.get('/', usersCtrl.index);
+router.get('/users/onboarding', usersCtrl.onboarding);
 router.get('/profile', isLoggedIn, usersCtrl.showProfile);
 
 

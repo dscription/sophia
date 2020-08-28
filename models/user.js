@@ -1,8 +1,19 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema
 
+const topicSchema = new Schema({
+  name: String,
+  contents: [{ type: Schema.Types.ObjectId, ref: 'Content'}],
+  attention: Number,
+  streak: Number,
+  goal: String,
+  goalDate: Date
+}, {
+  timestamps: true
+})
 
-var userSchema = new mongoose.Schema({
+
+const userSchema = new mongoose.Schema({
   name: String,
   email: String,
   alias: String,
