@@ -3,7 +3,7 @@ const User = require('../models/user');
 module.exports = {
   index,
   showProfile,
-  onboarding
+  onboarding,
 };
 
 function index(req, res) {
@@ -33,3 +33,4 @@ function onboarding(req, res) {
     user: req.user
   })
 }
+

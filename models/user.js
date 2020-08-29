@@ -21,25 +21,9 @@ const userSchema = new mongoose.Schema({
   avatar: String,
   googleId: String,
   friends: [{type: Schema.Types.ObjectId, ref: 'User'}],
-  topics: [{ type: Schema.Types.ObjectId, ref: 'Topic'}]
+  topics: [topicSchema]
 }, {
   timestamps: true
 });
 
 module.exports = mongoose.model('User', userSchema);
-
-// const userSchema = new Schema(
-//   {
-//     name: String,
-//     alias: String,
-//     email: String,
-//     avatar: String,
-//     googleId: String,
-//     bio: String,
-//     friends: [{ type: Schema.Types.ObjectId, ref: 'User'}],
-//     watchList: [watchListSchema]
-//   },
-//   {
-//     timestamps: true,
-//   }
-// );
