@@ -21,3 +21,9 @@ nav {
 #logo-text {
   font-family: 'Lobster Two', cursive;
 }
+
+#topic-card {
+  max-width: 250px;
+  max-height: 250px;
+  margin: 10px;
+}

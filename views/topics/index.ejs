@@ -2,13 +2,15 @@
 
 <h1>Here are all of your topics</h1>
 <div class="container">
-  <% topics.forEach(topic => { %>
-    
-  <div class="card">
-    <%= topic.name %>
+  <div class="row">
+    <% topics.forEach(topic => { %>
+    <div class="card small col s4" id="topic-card">
+      <div class="card-content col-content">
+        <%= topic.name %>
+      </div>
+    </div>
+    <% }) %>
   </div>
-
-  <% }) %>
 
 </div>
 
