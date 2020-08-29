@@ -5,6 +5,9 @@ module.exports = {
   show
 };
 
+
+
+
 function show(req, res) {
   console.log(req)
   res.render('topics/index', {
@@ -19,7 +22,7 @@ function create(req, res) {
   User.findById(req.user._id, function (err, user) {
     user.topics.push(req.body);
     user.save(function (err) {
-      res.redirect(`/users/${user._id}/topics`)
+      res.redirect(`/users/new`)
     })
   })
 }

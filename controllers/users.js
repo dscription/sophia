@@ -2,8 +2,8 @@ const User = require('../models/user');
 
 module.exports = {
   index,
-  showProfile,
   onboarding,
+  new: newProfile
 };
 
 function index(req, res) {
@@ -17,14 +17,21 @@ function index(req, res) {
     })
 }
 
-function showProfile(req, res) {
-  User.findById(req.user._id)
-    .then((user) => {
-      res.render('users/profile', {
-        title: 'Profile Page',
-        user
-      })
-    })
+// function showProfile(req, res) {
+//   User.findById(req.user._id)
+//     .then((user) => {
+//       res.render('users/profile', {
+//         title: 'Profile Page',
+//         user
+//       })
+//     })
+// }
+
+function newProfile(req, res) {
+  res.render('users/profile', {
+    user: req.user,
+    title: "Enter Your Profile Details"
+  })
 }
 
 function onboarding(req, res) {
