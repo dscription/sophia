@@ -3,7 +3,8 @@ const User = require('../models/user');
 module.exports = {
   index,
   onboarding,
-  new: newProfile
+  new: newProfile,
+  update
 };
 
 function index(req, res) {
@@ -38,6 +39,15 @@ function onboarding(req, res) {
   res.render('users/onboarding', {
     title: 'onboarding',
     user: req.user
+  })
+}
+
+function update (req,res) {
+  User.findByIdAndUpdate(req.user._id, req.body, {
+    new: true
+  })
+  .then(() => {
+    res.redirect('/users/profile')
   })
 }
 

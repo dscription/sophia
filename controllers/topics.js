@@ -22,7 +22,7 @@ function create(req, res) {
   User.findById(req.user._id, function (err, user) {
     user.topics.push(req.body);
     user.save(function (err) {
-      res.redirect(`/users/new`)
+      res.redirect(`/users/profile`)
     })
   })
 }
