@@ -1,0 +1,17 @@
+<%- include('../partials/header') %>
+
+<h1>Show Single Topic Page</h1>
+<div class="container">
+  <!-- add title to h1 -->
+  <h1><%= title%></h1>
+  <!-- Add Streaks -->
+  <!-- Add number of tasks completed -->
+  <form action="/topics/<%=topicId%>?_method=PUT" method="POST">
+    <h2>What is your end goal with studying <%=title%></h2>
+    <input type="text" name="goal">
+    <h2>Do you have an end date in mind?</h2>
+    <input type="date" name="goalDate">
+    <button type="subming" class="btn">Submit</button>
+  </form>
+</div>
+<%- include('../partials/footer') %>

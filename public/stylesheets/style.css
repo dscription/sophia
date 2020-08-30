@@ -27,3 +27,5 @@ nav {
   max-height: 250px;
   margin: 10px;
 }
+
+.modal { width: 75% !important ; height: 75% !important ; } 
