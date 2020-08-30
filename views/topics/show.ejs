@@ -2,8 +2,7 @@
 <div class="container">
   <!-- add title to h1 -->
   <h1><%= title%></h1>
-  <!-- Add Streaks -->
-  <!-- Add number of tasks completed -->
+  
   <% if(!topic.goal && !topic.goalDate) { %>
   <form action="/topics/<%=topicId%>?_method=PUT" method="POST">
     <h2>What is your end goal with studying <%=title%></h2>
@@ -13,7 +12,12 @@
     <button type="subming" class="btn">Submit</button>
   </form>
 <% } else {%>
-  
+  <h3>Goal</h3>
+  <span><%=topic.goal %></span>
+  <h3>Deadline</h3>
+  <span><%=topic.goalDate %></span>
+  <!-- Add Streaks -->
+  <!-- Add number of tasks completed -->
 <%}%>
 
 </div>
