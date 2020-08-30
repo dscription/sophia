@@ -5,9 +5,6 @@ module.exports = {
   show
 };
 
-
-
-
 function show(req, res) {
   console.log(req)
   res.render('topics/index', {
