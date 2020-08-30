@@ -29,6 +29,7 @@ function show(req, res) {
     const topic = user.topics.id(req.params.id);
     res.render('topics/show', {
       title: topic.name,
+      topic: topic,
       user: req.user,
       topicId: req.params.id
     })
