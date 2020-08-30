@@ -8,6 +8,9 @@
     <div class="card small col s4" id="topic-card">
       <div class="card-content col-content">
         <%= topic.name %>
+        <% if(topic.goalDate) { %>
+          <%=topic.goalDate%>
+        <%} %> 
       </div>
       <a class="btn" href="/topics/<%=topic.id%>" >Expand Topic</a>
     </div>
