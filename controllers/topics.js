@@ -4,7 +4,8 @@ module.exports = {
   create,
   show,
   index,
-  update
+  update,
+  removeTopic
 };
 
 function index(req, res) {
@@ -44,5 +45,17 @@ function update(req, res) {
     user.save(function (err) {
      res.redirect('/users/:id/topics')
     })
+  })
+}
+
+function removeTopic(req, res) {
+  let topics = req.user.topics;
+  topics.forEach((topic,idx) => {
+    if (topic.id === req.params.id) {
+      topics.splice(idx,1)
+    }
+  })
+  req.user.save().then(() => {
+    res.redirect('/users/:id/topics')
   })
 }
