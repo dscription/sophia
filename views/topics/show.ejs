@@ -1,48 +1,63 @@
 <%- include('../partials/header') %>
 <div class="container">
-  <h1><%= title%></h1>
+  <div class="card deep-purple lighten-3">
+    <div class="card-content">
+      <h1><%= title%></h1>
 
-  <% if(!topic.goal && !topic.goalDate) { %>
-  <form action="/topics/<%=topicId%>?_method=PUT" method="POST">
-    <h2>What is your end goal with studying <%=title%></h2>
-    <input type="text" name="goal">
-    <h2>Do you have an end date in mind?</h2>
-    <input type="date" name="goalDate">
-    <button type="submit" class="btn">Submit</button>
-  </form>
-  <% } else { %>
-  <h3>Goal</h3>
-  <span><%=topic.goal %></span>
-  <h3>Deadline</h3>
-  <span><%=topic.goalDate %></span>
-  <h3>add content</h3>
-  <form action="/users/<%=user.id%>/topics/<%=topicId%>/contents" method="POST">
-    <label for="addContentName">Add Name</label>
-    <input type="text" name="name" id="addContentName" value="add content name">
-    <label for="addContentLink">Content Link</label>
-    <input type="text" name="link" id="addContentLink" value="add content link">
-    <div class="input-field col s12">
-      <select name="method" multiple>
-        <option value="book">Book</option>
-        <option value="video">Video</option>
-        <option value="article">Article</option>
-        <option value="online course">Online Course</option>
-      </select>
-    </div>
-    <button type="submit" class="btn">Submit</button>
-  </form>
-  <%}%>
- <h3>list content</h3>
-  <%topic.contents.forEach(content => {%>
-    <div class="card">
-      <div class="card-content">
-        <h1><%=content.name%></h1>
-        <h1><%=content.method%></h1>
-        <h1><%=content.link%></h1>
-        <h1><%=content.notes%></h1>
+      <% if(!topic.goal && !topic.goalDate) { %>
+      <div class="card">
+        <div class="card-content">
+          <form action="/topics/<%=topicId%>?_method=PUT" method="POST">
+
+            <h2>What is your end goal with studying <%=title%></h2>
+            <input type="text" name="goal">
+            <h2>Do you have an end date in mind?</h2>
+            <input type="date" name="goalDate">
+            <button type="submit" class="btn">Submit</button>
+          </form>
+        </div>
       </div>
+      <% } else { %>
+      <h3>Goal</h3>
+      <span><%=topic.goal %></span>
+      <h3>Deadline</h3>
+      <span><%=topic.goalDate %></span>
+      <div class="card">
+        <div class="card-content">
+          <h3>add content</h3>
+          <form action="/users/<%=user.id%>/topics/<%=topicId%>/contents" method="POST">
+            <label for="addContentName">Add Name</label>
+            <input type="text" name="name" id="addContentName" value="add content name">
+            <label for="addContentLink">Content Link</label>
+            <input type="text" name="link" id="addContentLink" value="add content link">
+            <div class="input-field col s12">
+              <select name="method" multiple>
+                <option value="book">Book</option>
+                <option value="video">Video</option>
+                <option value="article">Article</option>
+                <option value="online course">Online Course</option>
+              </select>
+            </div>
+            <button type="submit" class="btn">Submit</button>
+          </form>
+        </div>
+      </div>
+
+      <%}%>
+     <h3>list content</h3>
+      <%topic.contents.forEach(content => {%>
+      <div class="card">
+        <div class="card-content">
+          <h1><%=content.name%></h1>
+          <h1><%=content.method%></h1>
+          <h1><%=content.link%></h1>
+          <h1><%=content.notes%></h1>
+        </div>
+      </div>
+
+      <% })%>
     </div>
-    
-  <% })%>
+  </div>
+
 </div>
 <%- include('../partials/footer') %>

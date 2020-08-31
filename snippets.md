@@ -35,24 +35,3 @@
 
 
 
-// <!-- 
-// <% if(!topic.contents) {%>
-//   <form action="/users/<%=user.id%>/topics/<%=topicId%>/contents" method="POST">
-
-//     <label for="addContentName">Add Name</label>
-//     <input type="text" name="name" id="addContentName" value="add content name">
-//     <label for="addContentLink">Content Link</label>
-//     <input type="text" name="name" id="addContentLink" value="add content link"> -->
-//     <div class="input-field col s12">
-//       <select multiple>
-//         <option value="book">Book</option>
-//         <option value="video">Video</option>
-//         <option value="article">Article</option>
-//         <option value="online course">Online Course</option>
-//       </select>
-//     </div>
-
-
-//     <button type="submit" class="btn">Submit</button>
-//   </form>
-//   <%}%> -->
