@@ -1,17 +1,18 @@
 <%- include('../partials/header') %>
-
-
 <div class="container">
   <h2>Select any areas you are interested in studying below</h2>
   <form action="/users/:id/topics" method="POST">
-    <label for="addTopic">Select Topic</label>
-    <input type="text" class="btn waves-effect waves-light" id="addTopic"  name="name">
+
+    <% topicsList.forEach(topic => { %>
+    <label>
+      <input class="btn" type="checkbox" name="name" value="<%=topic%>" />
+      <span><%=topic%></span>
+    </label>
+
+    <%})%>
     <button class="btn waves-effect waves-light" type="submit">Submit
       <i class="material-icons right">send</i>
     </button>
-
   </form>
 </div>
-
-
 <%- include('../partials/footer') %>

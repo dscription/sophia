@@ -18,7 +18,9 @@ function index(req, res) {
 
 function create(req, res) {
   User.findById(req.user._id, function (err, user) {
-    user.topics.push(req.body);
+    req.body.name.forEach(name => {
+      user.topics.push({"name": name});
+    })
     user.save(function (err) {
       res.redirect(`/users/profile`)
     })

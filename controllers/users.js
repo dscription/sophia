@@ -5,7 +5,7 @@ module.exports = {
   onboarding,
   new: newProfile,
   update,
-  show
+  show,
 };
 
 function index(req, res) {
@@ -45,7 +45,8 @@ function onboarding(req, res) {
   } else {
     res.render('users/onboarding', {
       title: 'onboarding',
-      user: req.user
+      user: req.user,
+      topicsList: topicsList
     })
   }
 }
@@ -66,3 +67,31 @@ function update(req, res) {
 // function removeFriend(req, res) {
 
 // }
+
+let topicsList = [
+  "Full Stack Web Development",
+  "Software Engineering",
+  "HTML",
+  "CSS",
+  "Game Design",
+  "Sign Language",
+  "Spanish",
+  "German",
+  "French",
+  "Mathematics",
+  "Geometry",
+  "Linear Algebra",
+  "Chemistry",
+  "Biology",
+  "React",
+  "React Native",
+  "Cooking",
+  "Anatomy",
+  "Physiology",
+  "Kinesiology",
+  "Business Administration",
+  "Lean Methodology",
+  "JavaScript",
+  "Python",
+  "Agile",
+]
