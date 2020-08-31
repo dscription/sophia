@@ -11,11 +11,12 @@ function create(req, res) {
     let topic = user.topics.id(req.params.id);
     topic.contents.push(req.body)
     user.save(function(err) {
-      console.log(topic.contents);
+      res.redirect(`/topics/${req.params.id}`)
+      })
     })
-  })
+  }
   
-}
+
 function deleteOne(req, res) {
 
 }
