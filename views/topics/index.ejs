@@ -2,23 +2,28 @@
 
 <h1>Here are all of your topics</h1>
 <div class="container">
-  <div class="row">
-    <% topics.forEach((topic, idx) => { %>
+  <div class="card deep-purple lighten-3">
+    <div class="card-content">
+      <div class="row">
+        <% topics.forEach((topic, idx) => { %>
 
-    <div class="card small col s4" id="topic-card">
-      <div class="card-content col-content">
-        <%= topic.name %>
-        <% if(topic.goalDate) { %>
-          <%=topic.goalDate%>
-        <%} %> 
+        <div class="card small col s4" id="topic-card">
+          <div class="card-content col-content">
+            <%= topic.name %>
+            <% if(topic.goalDate) { %>
+            <%=topic.goalDate%>
+            <%} %>
+          </div>
+          <a class="btn" href="/topics/<%=topic.id%>">Expand Topic</a>
+          <a href="/topics/<%=topic.id%>/remove" class="btn"><i class="material-icons">delete_forever</i></a>
+
+        </div>
+        <% }) %>
       </div>
-      <a class="btn" href="/topics/<%=topic.id%>" >Expand Topic</a>
-      <a href="/topics/<%=topic.id%>/remove" class="btn"><i class="material-icons">delete_forever</i></a>
-      
     </div>
-    <% }) %>
   </div>
-  
+
+
 </div>
 
 <%- include('../partials/footer') %>

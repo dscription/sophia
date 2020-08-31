@@ -18,8 +18,21 @@ function create(req, res) {
   
 
 function deleteOne(req, res) {
-
+  let topics = req.user.topics;
+  topics.forEach((topic, idx) => {
+    if (topic.id === req.params.topicId) {
+      topic.contents.forEach((content, cidx) => {
+        if(content.id === req.params.contentId) {
+          topic.contents.splice(cidx, 1)
+        }
+      })
+    }
+  })
+  req.user.save().then(() => {
+    res.redirect(`/topics/${req.params.topicId}`)
+  })
 }
+
 function update(req, res) {
 
 }
