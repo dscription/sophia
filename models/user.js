@@ -12,7 +12,7 @@ const contentSchema = new Schema({
 
 const topicSchema = new Schema({
   name: String,
-  contents: [{ type: Schema.Types.ObjectId, ref: 'Content'}],
+  contents: [contentSchema],
   attention: Number,
   streak: Number,
   goal: String,

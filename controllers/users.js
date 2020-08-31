@@ -15,6 +15,8 @@ function index(req, res) {
         user: req.user,
         title: 'Welcome',
         users
+        // addFriend,
+        // removeFriend
       })
     })
 }
@@ -56,3 +58,11 @@ function update(req, res) {
       res.redirect('/users/profile')
     })
 }
+
+// function addFriend(req, res) {
+
+// }
+
+// function removeFriend(req, res) {
+
+// }
