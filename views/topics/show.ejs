@@ -46,36 +46,68 @@
       </div>
 
       <%}%>
-     <h2>list content</h2>
+
+      <h2>Completed</h2>
       <%topic.contents.forEach(content => {%>
+      <%if (content.completed) {%>
       <div class="card">
         <div class="card-content">
           <h1>Name: <%=content.name%></h1>
           <h1>Type:<%=content.method%></h1>
           <h1>Link:<%=content.link%></h1>
-          <%if(content.notes.length > 0) {%>
+
+          <%if(content.notes === undefined){%>
+          <h3>No notes to show</h3>
+          <%} else {%>
           <h2>Notes:</h2>
           <div class="card" id="notes-card">
             <div class="card-content">
               <p><%=content.notes%></p>
             </div>
           </div>
-
           <%}%>
+
+        </div>
+      </div>
+      <%}%>
+          <%})%>
+
+          <h2>In Progress</h2>
+          <%topic.contents.forEach(content => {%>
+          <%if(!content.completed) {%>
+          <div class="card">
+            <div class="card-content">
+              <h1>Name: <%=content.name%></h1>
+              <h1>Type:<%=content.method%></h1>
+              <h1>Link:<%=content.link%></h1>
+
+              <%if(content.notes === undefined){%>
+              <h3>No notes to show</h3>
+              <%} else {%>
+              <h2>Notes:</h2>
+              <div class="card" id="notes-card">
+                <div class="card-content">
+                  <p><%=content.notes%></p>
+                </div>
+              </div>
+              <%}%>
           
           <a href="/topics/<%=topicId%>/contents/<%=content._id%>/newNote" class="btn">Add Notes</a>
-          <!-- if i click on urgent, the contents should be updated toggled to  -->
-          <a href="/topics/<%=topicId%>/contents/<%=content._id%>/urgent" class="btn"><%=content.urgent ? 'Deprioritize' : 'Proioritize'%></a>
-          <a href="/topics/<%=topicId%>/contents/<%=content._id%>/completed" class="btn"><%=content.completed ? 'Task is completed!' : 'Complete'%></a>
+              <a href="/topics/<%=topicId%>/contents/<%=content._id%>/urgent"
+                class="btn"><%=content.urgent ? 'Deprioritize' : 'Proioritize'%></a>
+              <a href="/topics/<%=topicId%>/contents/<%=content._id%>/completed"
+                class="btn"><%=content.completed ? 'Task is completed!' : 'Complete'%></a>
 
-          <a href="/topics/<%=topicId%>/contents/<%=content._id%>/remove" class="btn"><i
-              class="material-icons">delete_forever</i></a>
+              <a href="/topics/<%=topicId%>/contents/<%=content._id%>/remove" class="btn"><i
+                  class="material-icons">delete_forever</i></a>
+            </div>
+          </div>
+          <%}%>
+
+
+      <% })%>
         </div>
       </div>
 
-      <% })%>
     </div>
-  </div>
-
-</div>
-<%- include('../partials/footer') %>
+    <%- include('../partials/footer') %>
