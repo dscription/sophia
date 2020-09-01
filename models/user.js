@@ -7,7 +7,8 @@ const contentSchema = new Schema({
   method: {type: String, enum: ['book', 'video', 'article', 'online course']},
   link: String,
   notes: String,
-  completed: {type: Boolean, default: false}
+  completed: {type: Boolean, default: false},
+  urgent: {type: Boolean, default: false}
 })
 
 const topicSchema = new Schema({

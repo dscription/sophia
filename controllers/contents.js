@@ -5,6 +5,8 @@ module.exports = {
   delete: deleteOne,
   update,
   newNote,
+  setUrgency,
+  setComplete
   
 }
 
@@ -59,5 +61,19 @@ function update(req, res) {
   })
   req.user.save().then(() => {
     res.redirect(`/topics/${req.params.topicId}`)
+  })
+}
+
+function setUrgency (req, res) {
+  User.findById(req.user.id, function (err, user) {
+    const topic = user.topics.id(req.params.topicId)
+    topic.contents.forEach(content => {
+      if(content.id === req.params.contentId) {
+        content.urgent = !content.urgent
+      }
+    })
+    user.save(function (err) {
+     res.redirect(`/topics/${req.params.topicId}`)
+    })
   })
 }

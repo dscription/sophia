@@ -64,7 +64,6 @@ function removeTopic(req, res) {
 }
 
 function setVisibility(req, res) {
-  console.log('hit set visibility')
   User.findById(req.user.id, function (err, user) {
     const topic = user.topics.id(req.params.id);
     topic.isPublic = !topic.isPublic;
