@@ -76,6 +76,7 @@ function removeFriend(req, res) {
   })
 }
 
+
 let topicsList = [
   "Full Stack Web Development",
   "Software Engineering",

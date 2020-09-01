@@ -11,6 +11,7 @@ router.get('/users/:id/friend', isLoggedIn, usersCtrl.addFriend)
 router.get('/users/:id/unfriend', isLoggedIn, usersCtrl.removeFriend)
 
 
+
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) return next();
   res.redirect("/auth/google");
