@@ -57,9 +57,28 @@
               <%=friend.alias%>
               <%=friend.bio%>
               <h3>test content</h3>
-              <%friend.topics.forEach(friendTopic => {%>
+              <ul class="collapsible">
+                <%friend.topics.forEach(friendTopic => {%>
+                  <li>
+                    <div class="collapsible-header">
+                      <%=friendTopic.name%>
+                    </div>
+                    <div class="collapsible-body">
+                        <%friendTopic.contents.forEach(content => { %>
+                          <div class="card">
+                            <div class="card-content">
+                              <%=content.name%>
+                              <%=content.type%>
+                              <%=content.link%>
+                              <%=content.notes%>
+                            </div>
+                          </div>
+                        <%})%>
+                    </div>
+                  </li>
+                <%})%>
+              </ul>
 
-              <%})%>
             </div>
           </li>
         </ul>
