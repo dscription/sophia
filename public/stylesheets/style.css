@@ -34,6 +34,24 @@ margin: 0;
   padding-top: 20px;
 }
 
+label {
+  font-size: 1.5rem;
+}
+
+p {
+  font-size: 2rem;
+}
+
+#notes-card {
+  background-color:lightgray;
+}
+
+
+
+
+
+
+
 body {
   background-color: #7e57c2
 }

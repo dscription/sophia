@@ -13,19 +13,20 @@
             <input type="text" name="goal">
             <h2>Do you have an end date in mind?</h2>
             <input type="date" name="goalDate">
-            
+
             <button type="submit" class="btn">Submit</button>
           </form>
         </div>
       </div>
       <% } else { %>
-      <h3>Goal</h3>
-      <span><%=topic.goal %></span>
-      <h3>Deadline</h3>
-      <span><%=topic.goalDate %></span>
+      <h2>Goal</h2>
+      <a href="/topics/<%=topicId%>/isPublic" class="btn"><%=topic.isPublic ? 'Make Private' : 'Make Public'%></a>
+      <h3><%=topic.goal %></h3>
+      <h2>Deadline</h2>
+      <h3><%=topic.goalDate %></h3>
       <div class="card">
         <div class="card-content">
-          <h3>add content</h3>
+          <h2>add content</h2>
           <form action="/users/<%=user.id%>/topics/<%=topicId%>/contents" method="POST">
             <label for="addContentName">Add Name</label>
             <input type="text" name="name" id="addContentName" value="add content name">
@@ -45,20 +46,26 @@
       </div>
 
       <%}%>
-     <h3>list content</h3>
+     <h2>list content</h2>
       <%topic.contents.forEach(content => {%>
       <div class="card">
         <div class="card-content">
-          <h1><%=content.name%></h1>
-          <h1><%=content.method%></h1>
-          <h1><%=content.link%></h1>
-        <%if(content.notes.length > 0) {%>
-          <h3>Notes:</h3>
-          <p><%=content.notes%></p>
-        <%}%>
+          <h1>Name: <%=content.name%></h1>
+          <h1>Type:<%=content.method%></h1>
+          <h1>Link:<%=content.link%></h1>
+          <%if(content.notes.length > 0) {%>
+          <h2>Notes:</h2>
+          <div class="card" id="notes-card">
+            <div class="card-content">
+              <p><%=content.notes%></p>
+            </div>
+          </div>
+
+          <%}%>
           
           <a href="/topics/<%=topicId%>/contents/<%=content._id%>/newNote" class="btn">Add Notes</a>
-          <a href="/topics/<%=topicId%>/contents/<%=content._id%>/remove" class="btn"><i class="material-icons">delete_forever</i></a>
+          <a href="/topics/<%=topicId%>/contents/<%=content._id%>/remove" class="btn"><i
+              class="material-icons">delete_forever</i></a>
         </div>
       </div>
 

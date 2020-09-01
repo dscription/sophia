@@ -5,7 +5,8 @@ module.exports = {
   show,
   index,
   update,
-  removeTopic
+  removeTopic,
+  setVisibility
 };
 
 function index(req, res) {
@@ -59,5 +60,16 @@ function removeTopic(req, res) {
   })
   req.user.save().then(() => {
     res.redirect('/users/:id/topics')
+  })
+}
+
+function setVisibility(req, res) {
+  console.log('hit set visibility')
+  User.findById(req.user.id, function (err, user) {
+    const topic = user.topics.id(req.params.id);
+    topic.isPublic = !topic.isPublic;
+    user.save(function (err) {
+     res.redirect(`/topics/${req.params.id}`)
+    })
   })
 }
