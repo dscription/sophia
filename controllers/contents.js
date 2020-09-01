@@ -6,7 +6,7 @@ module.exports = {
   update,
   newNote,
   setUrgency,
-  setComplete
+  setCompleted
   
 }
 
@@ -70,6 +70,20 @@ function setUrgency (req, res) {
     topic.contents.forEach(content => {
       if(content.id === req.params.contentId) {
         content.urgent = !content.urgent
+      }
+    })
+    user.save(function (err) {
+     res.redirect(`/topics/${req.params.topicId}`)
+    })
+  })
+}
+
+function setCompleted (req, res) {
+  User.findById(req.user.id, function (err, user) {
+    const topic = user.topics.id(req.params.topicId)
+    topic.contents.forEach(content => {
+      if(content.id === req.params.contentId) {
+        content.completed = !content.completed
       }
     })
     user.save(function (err) {

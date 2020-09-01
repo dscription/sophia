@@ -9,7 +9,7 @@ router.get('/topics/:topicId/contents/:contentId/remove', contentsCtrl.delete)
 router.get('/topics/:topicId/contents/:contentId/newNote', contentsCtrl.newNote)
 router.put('/topics/:topicId/contents/:contentId', contentsCtrl.update),
 router.get('/topics/:topicId/contents/:contentId/urgent', contentsCtrl.setUrgency)
-router.get('/topics/:topicId/contents/:contentId/complete', contentsCtrl.setComplete)
+router.get('/topics/:topicId/contents/:contentId/completed', contentsCtrl.setCompleted)
 
 
 module.exports = router;
