@@ -1,10 +1,22 @@
 <%- include('../partials/header') %>
-<h1>You have arrived at your profile.</h1>
+
 <div class="container">
-  <h3>Name</h3>
-  <span><%= user.name%></span>
-  <h3>E-mail</h3>
-  <span><%= user.email %></span>
+  <h1>You have arrived at your profile.</h1>
+  <div class="card">
+    <div class="card-content">
+      <h3>Name</h3>
+      <span><%= user.name%></span>
+    </div>
+  </div>
+
+
+  <div class="card">
+    <div class="card-content">
+      <h3>E-mail</h3>
+      <span><%= user.email %></span>
+    </div>
+  </div>
+
 
   <% if (!user.name && !user.bio) { %>
   <form action="/topics/<%=topicId%>?_method=PUT" method="POST">
@@ -16,17 +28,26 @@
   </form>
   <% } else { %>
   <div>
-    <h3>Alias</h3>
-    <span><%= user.name%></span>
-    <h3>Bio</h3>
-    <span><%= user.bio%></span>
+    <div class="card">
+      <div class="card-content">
+        <h3>Alias</h3>
+        <span><%= user.name%></span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content">
+        <h3>Bio</h3>
+        <span><%= user.bio%></span>
+      </div>
+    </div>
   </div>
   <% }%>
-  <div>Friends!
+  <div>
     <ul>
       <% friends.forEach(friend => { %>
       <div class="card">
         <div class="card-content">
+          <h3>Friends</h3>
           <li><%=friend.name%></li>
           <a class="btn" href="">View Profile</a>
           <a class="btn" href="/users/<%=friend.id%>/unfriend">Remove Friend</a>
