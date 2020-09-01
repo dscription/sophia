@@ -52,7 +52,11 @@
           <h1><%=content.name%></h1>
           <h1><%=content.method%></h1>
           <h1><%=content.link%></h1>
-          <h1><%=content.notes%></h1>
+        <%if(content.notes.length > 0) {%>
+          <h3>Notes:</h3>
+          <p><%=content.notes%></p>
+        <%}%>
+          
           <a href="/topics/<%=topicId%>/contents/<%=content._id%>/newNote" class="btn">Add Notes</a>
           <a href="/topics/<%=topicId%>/contents/<%=content._id%>/remove" class="btn"><i class="material-icons">delete_forever</i></a>
         </div>
