@@ -29,7 +29,6 @@ function create(req, res) {
 
 function show(req, res) {
   User.findById(req.user._id, function (err, user) {
-    console.log(req)
     const topic = user.topics.id(req.params.id);
     res.render('topics/show', {
       title: topic.name,

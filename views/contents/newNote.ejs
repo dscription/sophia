@@ -1,0 +1,6 @@
+<%- include('../partials/header') %>
+<form action="/topics/<%=topicId%>/contents/<%=contentId%>?_method=PUT" method="POST">
+  <textarea name="notes"></textarea>
+  <button type="submit">Save Note</button>
+</form>
+<%- include('../partials/footer') %>
