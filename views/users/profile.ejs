@@ -22,6 +22,20 @@
     <span><%= user.bio%></span>
   </div>
   <% }%>
+  <div>Friends!
+    <ul>
+      <% friends.forEach(friend => { %>
+      <div class="card">
+        <div class="card-content">
+          <li><%=friend.name%></li>
+          <a href="">View Profile</a>
+          <a href="">Remove Friend</a>
+        </div>
+      </div>
+
+      <%})%>
+    </ul>
+  </div>
 </div>
 
 

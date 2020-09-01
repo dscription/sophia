@@ -12,7 +12,6 @@ router.get('/google', passport.authenticate(
     scope: ['profile', 'email'],
   }
 ));
-// this should redirect back to /users/onboarding
 
 
 

@@ -31,15 +31,19 @@
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="/users/profile">Profile</a></li>
         <li><a href="/users/:id/topics">Topics</a></li>
+        <li><a href="/">Users</a></li>
         <li><a href="">Friends</a></li>
         <li><a href="">Notes</a></li>
       </ul>
     </div>
   </nav>
 
+  <!-- router.get('/', usersCtrl.index); -->
+
   <ul class="sidenav" id="slide-out">
     <li><a href="/users/profile">Profile</a></li>
-    <li><a href="">Topics</a></li>
+    <li><a href="/users/:id/topics">Topics</a></li>
+    <li><a href="/">Users</a></li>
     <li><a href="">Friends</a></li>
     <li><a href="">Notes</a></li>
   </ul>

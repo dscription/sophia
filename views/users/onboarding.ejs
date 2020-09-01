@@ -2,14 +2,17 @@
 <div class="container">
   <h2>Select any areas you are interested in studying below</h2>
   <form action="/users/:id/topics" method="POST">
+    <div class="row">
+      <% topicsList.forEach((topic,idx) => { %>
+      <div class="col s3">
+        <label>
+          <input class="btn" type="checkbox" name="name" value="<%=topic%>" />
+          <span><%=topic%></span>
+        </label>
+      </div>
+      <%})%>
+    </div>
 
-    <% topicsList.forEach(topic => { %>
-    <label>
-      <input class="btn" type="checkbox" name="name" value="<%=topic%>" />
-      <span><%=topic%></span>
-    </label>
-
-    <%})%>
     <button class="btn waves-effect waves-light" type="submit">Submit
       <i class="material-icons right">send</i>
     </button>
