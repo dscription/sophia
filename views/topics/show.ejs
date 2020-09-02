@@ -44,70 +44,74 @@
           </form>
         </div>
       </div>
-
       <%}%>
 
-      <h2>Completed</h2>
-      <%topic.contents.forEach(content => {%>
-      <%if (content.completed) {%>
-      <div class="card">
-        <div class="card-content">
-          <h1>Name: <%=content.name%></h1>
-          <h1>Type:<%=content.method%></h1>
-          <h1>Link:<%=content.link%></h1>
-
-          <%if(content.notes === undefined){%>
-          <h3>No notes to show</h3>
-          <%} else {%>
-          <h2>Notes:</h2>
-          <div class="card" id="notes-card">
-            <div class="card-content">
-              <p><%=content.notes%></p>
-            </div>
-          </div>
-          <%}%>
-
-        </div>
-      </div>
-      <%}%>
-          <%})%>
-
-          <h2>In Progress</h2>
-          <%topic.contents.forEach(content => {%>
-          <%if(!content.completed) {%>
-          <div class="card">
-            <div class="card-content">
-              <h1>Name: <%=content.name%></h1>
-              <h1>Type:<%=content.method%></h1>
-              <h1>Link:<%=content.link%></h1>
-
-              <%if(content.notes === undefined){%>
-              <h3>No notes to show</h3>
-              <%} else {%>
-              <h2>Notes:</h2>
-              <div class="card" id="notes-card">
-                <div class="card-content">
-                  <p><%=content.notes%></p>
-                </div>
+      <div>
+        <h2>Completed</h2>
+        <ul class="collapsible">
+          <%topic.contents.forEach(content => { %>
+          <%if (content.completed) {%>
+            <li>
+              <div class="collapsible-header">
+                <h1>Name: <%=content.name%></h1>
+                <h1>Type:<%=content.method%></h1>
+                <h1>Link:<%=content.link%></h1>
               </div>
-              <%}%>
-          
-          <a href="/topics/<%=topicId%>/contents/<%=content._id%>/newNote" class="btn">Add Notes</a>
-              <a href="/topics/<%=topicId%>/contents/<%=content._id%>/urgent"
-                class="btn"><%=content.urgent ? 'Deprioritize' : 'Proioritize'%></a>
-              <a href="/topics/<%=topicId%>/contents/<%=content._id%>/completed"
-                class="btn"><%=content.completed ? 'Task is completed!' : 'Complete'%></a>
-
-              <a href="/topics/<%=topicId%>/contents/<%=content._id%>/remove" class="btn"><i
-                  class="material-icons">delete_forever</i></a>
-            </div>
-          </div>
+              <div class="collapsible-body">
+                <%if(content.notes === undefined){%>
+                  <h3>No notes to show</h3>
+                  <%} else {%>
+                  <h2>Notes:</h2>
+                  <div class="card" id="notes-card">
+                    <div class="card-content">
+                      <p><%=content.notes%></p>
+                    </div>
+                  </div>
+                  <%}%>
+              </div>
+            </li>
           <%}%>
-
-
-      <% })%>
-        </div>
+          <%})%>
+        </ul>  
       </div>
 
+      <div>
+        <h2>In Progress</h2>
+        <ul class="collapsible">
+          <%topic.contents.forEach(content => { %>
+          <%if (!content.completed) {%>
+            <li>
+              <div class="collapsible-header">
+                <h1>Name: <%=content.name%></h1>
+                <h1>Type:<%=content.method%></h1>
+                <h1>Link:<%=content.link%></h1>
+  
+                <a href="/topics/<%=topicId%>/contents/<%=content._id%>/newNote" class="btn">Add Notes</a>
+                <a href="/topics/<%=topicId%>/contents/<%=content._id%>/urgent"
+                  class="btn"><%=content.urgent ? 'Deprioritize' : 'Proioritize'%></a>
+                <a href="/topics/<%=topicId%>/contents/<%=content._id%>/completed"
+                  class="btn"><%=content.completed ? 'Task is completed!' : 'Complete'%></a>
+                <a href="/topics/<%=topicId%>/contents/<%=content._id%>/remove" class="btn"><i class="material-icons">delete_forever</i></a>
+              </div>
+              <div class="collapsible-body">
+                <%if(content.notes === undefined){%>
+                  <h3>No notes to show</h3>
+                  <%} else {%>
+                  <h2>Notes:</h2>
+                  <div class="card" id="notes-card">
+                    <div class="card-content">
+                      <p><%=content.notes%></p>
+                    </div>
+                  </div>
+                  <%}%>
+              </div>
+            </li>
+            
+          <%}%>
+          <%})%>
+        </ul>  
+      </div>
     </div>
-    <%- include('../partials/footer') %>
+  </div>
+</div>
+  <%- include('../partials/footer') %>

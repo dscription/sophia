@@ -26,9 +26,21 @@ margin: 0;
   margin-left: 15px;
 }
 
-.card .card-content .card-title {
-  margin-bottom: 10px;
+#logo-text {
+  font-size: 4rem;
 }
+
+.nav-links {
+  font-size: 1.75rem;
+}
+
+.info {
+  font-size: 2rem;
+}
+
+/* .info-section {
+  display: inline;
+} */
 
 #search-row form {
   padding-top: 20px;
@@ -50,11 +62,10 @@ p {
   background-color: lightgray;
 }
 
-
-
-
-
-
+.collapsible-header {
+  display: flex;
+  flex-direction:column
+}
 
 body {
   background-color: #7e57c2
