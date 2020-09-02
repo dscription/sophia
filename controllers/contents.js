@@ -6,7 +6,8 @@ module.exports = {
   update,
   newNote,
   setUrgency,
-  setCompleted
+  setCompleted,
+  showAllUrgent
   
 }
 
@@ -93,4 +94,8 @@ function setCompleted (req, res) {
      res.redirect(`/topics/${req.params.topicId}`)
     })
   })
+}
+
+function showAllUrgent(req, res) {
+  console.log('show all urgent contents')
 }
