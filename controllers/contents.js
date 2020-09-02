@@ -84,6 +84,9 @@ function setCompleted (req, res) {
     topic.contents.forEach(content => {
       if(content.id === req.params.contentId) {
         content.completed = !content.completed
+        if(content.urgent) {
+          content.urgent = !content.urgent
+        }
       }
     })
     user.save(function (err) {

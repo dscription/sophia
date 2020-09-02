@@ -50,11 +50,13 @@
       </div>
       <%}%>
 
-      <div>
-        <h2>Completed</h2>
-        <ul class="collapsible">
-          <%topic.contents.forEach(content => { %>
-      <%if (content.completed) {%>
+      
+
+        <div>
+          <h2>In Progress</h2>
+          <ul class="collapsible">
+            <%topic.contents.forEach(content => { %>
+      <%if (!content.completed) {%>
       <li>
         <div class="collapsible-header">
           <h3><i class="material-icons">assignment</i> <%=content.name%></h3>
@@ -67,7 +69,17 @@
           <%} else { %>
           <h3><i class="material-icons">collections_bookmark</i> <%=content.method%></h3>
           <%}%>
-          <h3><i class="material-icons">insert_link</i><%=content.link%></h3>
+                <h3><i class="material-icons">insert_link</i><%=content.link%></h3>
+
+          <div class="buttons-row">
+            <a href="/topics/<%=topicId%>/contents/<%=content._id%>/newNote" class="btn">Add Notes</a>
+            <a href="/topics/<%=topicId%>/contents/<%=content._id%>/urgent"
+              class="btn"><%=content.urgent ? 'Deprioritize' : 'Proioritize'%></a>
+            <a href="/topics/<%=topicId%>/contents/<%=content._id%>/completed"
+              class="btn"><%=content.completed ? 'Task is completed!' : 'Complete'%></a>
+            <a href="/topics/<%=topicId%>/contents/<%=content._id%>/remove" class="btn"><i
+                class="material-icons">delete_forever</i></a>
+          </div>
         </div>
         <div class="collapsible-body">
           <%if(content.notes === undefined){%>
@@ -82,16 +94,17 @@
           <%}%>
               </div>
             </li>
+            
           <%}%>
           <%})%>
           </ul>
         </div>
 
         <div>
-          <h2>In Progress</h2>
+          <h2>Completed</h2>
           <ul class="collapsible">
             <%topic.contents.forEach(content => { %>
-            <%if (!content.completed) {%>
+            <%if (content.completed) {%>
             <li>
               <div class="collapsible-header">
                 <h3><i class="material-icons">assignment</i> <%=content.name%></h3>
@@ -104,17 +117,7 @@
                 <%} else { %>
                 <h3><i class="material-icons">collections_bookmark</i> <%=content.method%></h3>
                 <%}%>
-                <h3><i class="material-icons">insert_link</i><%=content.link%></h3>
-
-                <div class="buttons-row">
-                  <a href="/topics/<%=topicId%>/contents/<%=content._id%>/newNote" class="btn">Add Notes</a>
-                  <a href="/topics/<%=topicId%>/contents/<%=content._id%>/urgent"
-                    class="btn"><%=content.urgent ? 'Deprioritize' : 'Proioritize'%></a>
-                  <a href="/topics/<%=topicId%>/contents/<%=content._id%>/completed"
-                    class="btn"><%=content.completed ? 'Task is completed!' : 'Complete'%></a>
-                  <a href="/topics/<%=topicId%>/contents/<%=content._id%>/remove" class="btn"><i
-                      class="material-icons">delete_forever</i></a>
-                </div>
+            <h3><i class="material-icons">insert_link</i><%=content.link%></h3>
               </div>
               <div class="collapsible-body">
                 <%if(content.notes === undefined){%>
@@ -127,10 +130,9 @@
                   </div>
                 </div>
                 <%}%>
-              </div>
-            </li>
-            
-          <%}%>
+                </div>
+              </li>
+            <%}%>
                 <%})%>
           </ul>
         </div>
