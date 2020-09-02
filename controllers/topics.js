@@ -6,7 +6,8 @@ module.exports = {
   index,
   update,
   removeTopic,
-  setVisibility
+  setVisibility,
+  setOpenStatus
 };
 
 function index(req, res) {
@@ -69,6 +70,17 @@ function setVisibility(req, res) {
     topic.isPublic = !topic.isPublic;
     user.save(function (err) {
      res.redirect(`/topics/${req.params.id}`)
+    })
+  })
+}
+
+function setOpenStatus(req, res) {
+  console.log('set status route hit')
+  User.findById(req.user.id, function (err, user) {
+    const topic = user.topics.id(req.params.id);
+    topic.isOpen = !topic.isOpen;
+    user.save(function (err) {
+     res.redirect(`/users/${req.user.id}/topics`)
     })
   })
 }

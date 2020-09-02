@@ -4,6 +4,7 @@
     <div class="card-content">
       <div class="heading">
         <h1><%= title%></h1>
+        <a href="/topics/<%=topicId%>/isOpen" class="btn">Close Topic</a>
         <a href="/topics/<%=topicId%>/isPublic" class="btn">
           <i class="material-icons"><%=topic.isPublic ? 'visibility' : 'visibility_off'%></i>
         </a>

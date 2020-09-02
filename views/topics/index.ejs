@@ -5,24 +5,51 @@
   <h1>Here are all of your topics</h1>
   <div class="card deep-purple lighten-3">
     <div class="card-content">
+      <h2>Open Topics</h2>
       <div class="row">
         <% topics.forEach((topic, idx) => { %>
-
+        <% if (topic.isOpen) { %>
         <div class="card small col s4" id="topic-card">
           <div class="card-content col-content">
             <h3><%= topic.name %></h2>
-            <% if(topic.goalDate) { %>
-            <span class="info"><%=topic.goalDate.toLocaleString()%></span>
-            
-            <%} %>
+              <% if(topic.goalDate) { %>
+              <span class="info"><%=topic.goalDate.toLocaleString()%></span>
+
+              <%} %>
           </div>
           <a class="btn" href="/topics/<%=topic.id%>">Expand Topic</a>
           <a href="/topics/<%=topic.id%>/remove" class="btn"><i class="material-icons">delete_forever</i></a>
         </div>
+        <%}%>
         <% }) %>
       </div>
     </div>
   </div>
+  
 </div>
+<div class="container">
+  <div class="card deep-purple lighten-3">
+    <div class="card-content">
+      <h2>Closed Topics</h2>
+      <div class="row">
+        <% topics.forEach((topic, idx) => { %>
+          <% if (!topic.isOpen) { %>
+            <div class="card small col s4" id="topic-card">
+              <div class="card-content col-content">
+                <h3><%= topic.name %></h2>
+                <% if(topic.goalDate) { %>
+                <span class="info"><%=topic.goalDate.toLocaleString()%></span>
+                
+                <%} %>
+              </div>
+              <a class="btn" href="/topics/<%=topic.id%>">Expand Topic</a>
+              <a href="/topics/<%=topic.id%>/remove" class="btn"><i class="material-icons">delete_forever</i></a>
+            </div>
+          <%}%>
+          <% }) %>
+    </div>
+  </div>
+</div>
+
 
 <%- include('../partials/footer') %>

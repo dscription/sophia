@@ -18,7 +18,8 @@ const topicSchema = new Schema({
   streak: Number,
   goal: String,
   goalDate: Date,
-  isPublic: {type: Boolean, default: true}
+  isPublic: {type: Boolean, default: true},
+  isOpen: {type: Boolean, default: true}
 }, {
   timestamps: true
 })

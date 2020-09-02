@@ -8,6 +8,7 @@ router.get('/topics/:id', isLoggedIn, topicsCtrl.show);
 router.put('/topics/:id', isLoggedIn, topicsCtrl.update);
 router.get('/topics/:id/remove', isLoggedIn, topicsCtrl.removeTopic)
 router.get('/topics/:id/isPublic', isLoggedIn,topicsCtrl.setVisibility)
+router.get('/topics/:id/isOpen', isLoggedIn,topicsCtrl.setOpenStatus)
 
 
 function isLoggedIn(req, res, next) {
