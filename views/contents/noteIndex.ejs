@@ -1,24 +1,24 @@
 <%- include('../partials/header') %>
-<h1>page works!</h1>
-<!-- user, topics, topicId -->
+<h1>Your notes!</h1>
 
-
-<div class="container">
-  <div class="card">
-    <div class="card-content">
-      <% topics.forEach(topic => {%>
-      <%topic.contents.forEach(content => {%>
-      <% if(content.notes) { %>
-      <h1>Topic Name: <%=topic.name%></h1>
-      <%- markdown.render('#### h1')%>
-      <!-- // <h1>Notes: <%=content.notes%></h1> -->
-      <%}%>
-
+<section class="container">
+  <ul class="collapsible">
+    <% topics.forEach(topic => {%>
+    <%topic.contents.forEach(content => {%>
+    <% if(content.notes) { %>
+    <li>
+      <div class="collapsible-header">
+        <h1>Topic Name: <%=topic.name%></h1>
+      </div>
+      <div class="collapsible-body">
+        <%- markdown.render(content.notes)%>
+      </div>
+    </li>
+    <%}%>
       <%})%>
-      <%})%>
-    </div>
-  </div>
-</div>
+    <%})%>
+  </ul>
+</section>
 
 
 
