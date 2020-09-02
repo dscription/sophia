@@ -25,7 +25,7 @@
       </div>
       <% } else { %>
       <h3>Goal: <span class="info"><%=topic.goal %></span></h3>
-      <h3>Deadline: <span class="info"><%=topic.goalDate.toLocaleString()%></span> </h3>
+      <h3><i class="material-icons">today</i> <span class="info"><%=topic.goalDate.toLocaleString()%></span> </h3>
 
       <div class="card">
         <div class="card-content">
@@ -56,9 +56,17 @@
       <%if (content.completed) {%>
       <li>
         <div class="collapsible-header">
-          <h1>Name: <%=content.name%></h1>
-          <h1>Type:<%=content.method%></h1>
-          <h1>Link:<%=content.link%></h1>
+          <h3><i class="material-icons">assignment</i> <%=content.name%></h3>
+          <%if (content.method === 'book'){%>
+          <h3><i class="material-icons">import_contacts</i> <%=content.method%></h3>
+          <%} else if (content.method === 'video') {%>
+          <h3><i class="material-icons">play_circle_outline</i> <%=content.method%></h3>
+          <%} else if (content.method === 'article') {%>
+          <h3><i class="material-icons">description</i> <%=content.method%></h3>
+          <%} else { %>
+          <h3><i class="material-icons">collections_bookmark</i> <%=content.method%></h3>
+          <%}%>
+          <h3><i class="material-icons">insert_link</i><%=content.link%></h3>
         </div>
         <div class="collapsible-body">
           <%if(content.notes === undefined){%>
@@ -85,17 +93,27 @@
             <%if (!content.completed) {%>
             <li>
               <div class="collapsible-header">
-                <h1>Name: <%=content.name%></h1>
-                <h1>Type:<%=content.method%></h1>
-                <h1>Link:<%=content.link%></h1>
+                <h3><i class="material-icons">assignment</i> <%=content.name%></h3>
+                <%if (content.method === 'book'){%>
+                <h3><i class="material-icons">import_contacts</i> <%=content.method%></h3>
+                <%} else if (content.method === 'video') {%>
+                <h3><i class="material-icons">play_circle_outline</i> <%=content.method%></h3>
+                <%} else if (content.method === 'article') {%>
+                <h3><i class="material-icons">description</i> <%=content.method%></h3>
+                <%} else { %>
+                <h3><i class="material-icons">collections_bookmark</i> <%=content.method%></h3>
+                <%}%>
+                <h3><i class="material-icons">insert_link</i><%=content.link%></h3>
 
-                <a href="/topics/<%=topicId%>/contents/<%=content._id%>/newNote" class="btn">Add Notes</a>
-                <a href="/topics/<%=topicId%>/contents/<%=content._id%>/urgent"
-                  class="btn"><%=content.urgent ? 'Deprioritize' : 'Proioritize'%></a>
-                <a href="/topics/<%=topicId%>/contents/<%=content._id%>/completed"
-                  class="btn"><%=content.completed ? 'Task is completed!' : 'Complete'%></a>
-                <a href="/topics/<%=topicId%>/contents/<%=content._id%>/remove" class="btn"><i
-                    class="material-icons">delete_forever</i></a>
+                <div class="buttons-row">
+                  <a href="/topics/<%=topicId%>/contents/<%=content._id%>/newNote" class="btn">Add Notes</a>
+                  <a href="/topics/<%=topicId%>/contents/<%=content._id%>/urgent"
+                    class="btn"><%=content.urgent ? 'Deprioritize' : 'Proioritize'%></a>
+                  <a href="/topics/<%=topicId%>/contents/<%=content._id%>/completed"
+                    class="btn"><%=content.completed ? 'Task is completed!' : 'Complete'%></a>
+                  <a href="/topics/<%=topicId%>/contents/<%=content._id%>/remove" class="btn"><i
+                      class="material-icons">delete_forever</i></a>
+                </div>
               </div>
               <div class="collapsible-body">
                 <%if(content.notes === undefined){%>
