@@ -6,18 +6,18 @@ module.exports = {
   create,
   delete: deleteOne,
   update,
-  newNote,
   setUrgency,
   setCompleted,
   showAllUrgent,
-  showAllNotes
-
 }
 
 function create(req, res) {
+  console.log('creating content!')
   User.findById(req.user._id, function (err, user) {
     let topic = user.topics.id(req.params.id);
+    console.log('-----------request body', req.body)
     topic.contents.push(req.body)
+    console.log('-=-------new contents',topic.contents)
     user.save(function (err) {
       res.redirect(`/topics/${req.params.id}`)
     })
@@ -38,15 +38,6 @@ function deleteOne(req, res) {
   })
   req.user.save().then(() => {
     res.redirect(`/topics/${req.params.topicId}`)
-  })
-}
-
-function newNote(req, res) {
-  res.render('contents/newNote', {
-    title: 'Take Notes',
-    user: req.user,
-    topicId: req.params.topicId,
-    contentId: req.params.contentId
   })
 }
 
@@ -108,12 +99,3 @@ function showAllUrgent(req, res) {
   })
 }
 
-function showAllNotes(req, res) {
-  res.render('contents/noteIndex', {
-    title: 'All Notes',
-    user: req.user,
-    topics: req.user.topics,
-    topicId: req.params.topicId,
-    markdown: md
-  })
-}

@@ -22,6 +22,7 @@ const usersRouter = require('./routes/users');
 const authRouter = require('./routes/auth');
 const topicsRouter = require('./routes/topics')
 const contentsRouter = require('./routes/contents')
+const notesRouter = require('./routes/notes')
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -46,7 +47,8 @@ app.use(passport.session());
 app.use('/', usersRouter);
 app.use('/auth', authRouter);
 app.use('/', topicsRouter);
-app.use('/', contentsRouter)
+app.use('/', contentsRouter);
+app.use('/', notesRouter);
 
 // invalid request, send 404 page
 app.use(function(req, res) {

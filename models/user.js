@@ -1,12 +1,18 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema
+const Schema = mongoose.Schema;
 
+
+const notesSchema = new Schema({
+  text: String
+}, {
+  timestamps: true
+})
 
 const contentSchema = new Schema({
   name: String,
   method: {type: String, enum: ['book', 'video', 'article', 'online course']},
   link: String,
-  notes: String,
+  notes: [],
   completed: {type: Boolean, default: false},
   urgent: {type: Boolean, default: false}
 })
