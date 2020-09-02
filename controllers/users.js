@@ -62,7 +62,9 @@ function update(req, res) {
 }
 
 function addFriend(req, res) {
-  req.user.friends.push(req.params.id);
+  User.findById(req.params.id, function(err, user) {
+    user.friends.push(req.params.id)
+  })
   req.user.save().then(() => {
     res.redirect('/')
   })

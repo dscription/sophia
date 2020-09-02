@@ -24,16 +24,6 @@ function create(req,res) {
   })
 }
 
-// function create(req, res) {
-//   User.findById(req.user._id, function (err, user) {
-//     let topic = user.topics.id(req.params.id);
-//     topic.contents.push(req.body)
-//     user.save(function (err) {
-//       res.redirect(`/topics/${req.params.id}`)
-//     })
-//   })
-// }
-
 function newNote(req,res) {
   res.render('notes/newNote', {
     title: 'Take Notes',
@@ -45,13 +35,13 @@ function newNote(req,res) {
 
 function index(req,res) {
   console.log('You have hit the ')
-  // res.render('contents/noteIndex', {
-  //   title: 'All Notes',
-  //   user: req.user,
-  //   topics: req.user.topics,
-  //   topicId: req.params.topicId,
-  //   markdown: md
-  // })
+  res.render('notes/noteIndex', {
+    title: 'All Notes',
+    user: req.user,
+    topics: req.user.topics,
+    topicId: req.params.topicId,
+    markdown: md
+  })
 }
 
 // function update(req, res) {

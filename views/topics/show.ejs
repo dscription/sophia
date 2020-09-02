@@ -81,13 +81,18 @@
           <h3><i class="material-icons">collections_bookmark</i> <%=content.method%></h3>
           <%}%>
             <h3><i class="material-icons">insert_link</i><%=content.link%></h3>
-          <%if(content.notes === undefined){%>
+          <%if(content.notes.length === 0){%>
           <h3>No notes to show</h3>
           <%} else {%>
           <h2>Notes:</h2>
           <div class="card" id="notes-card">
             <div class="card-content">
-              <p><%=content.notes%></p>
+              
+              <%content.notes.forEach(note => {%>
+                <h2>note title</h2>
+                <p><%=note.text%></p>
+                <button class="btn">Update note</button>
+              <%})%>
             </div>
           </div>
           <%}%>
@@ -120,7 +125,7 @@
                   <h3><i class="material-icons">collections_bookmark</i> <%=content.method%></h3>
                   <%}%>
                   <h3><i class="material-icons">insert_link</i><%=content.link%></h3>
-                  <%if(content.notes === undefined){%>
+                  <%if(content.notes.length === 0){%>
                   <h3>No notes to show</h3>
                   <%} else {%>
                   <h2>Notes:</h2>

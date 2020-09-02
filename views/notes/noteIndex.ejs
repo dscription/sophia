@@ -1,0 +1,25 @@
+<%- include('../partials/header') %>
+<h1>Your notes!</h1>
+
+<section class="container">
+  <ul class="collapsible">
+    <% topics.forEach(topic => {%>
+    <%topic.contents.forEach(content => {%>
+      <%content.notes.forEach(note => {%>
+        <li>
+          <div class="collapsible-header">
+            <h1>Topic Name: <%=topic.name%></h1>
+          </div>
+          <div class="collapsible-body">
+            <%- markdown.render(note.text)%>
+          </div>
+        </li>
+      <%})%>
+      <%})%>
+    <%})%>
+  </ul>
+</section>
+
+
+
+<%- include('../partials/footer') %>

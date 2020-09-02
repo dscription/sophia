@@ -1,6 +1,14 @@
 <%- include('../partials/header') %>
-<form action="/topics/<%=topicId%>/contents/<%=contentId%>" method="POST">
-  <textarea name="text"></textarea>
-  <button type="submit">Save Note</button>
-</form>
+<section class="container">
+  <form action="/topics/<%=topicId%>/contents/<%=contentId%>" method="POST">
+    <label for="noteTitle">
+      <input type="text" id="noteTitle" name="title" value="Give your note a title">
+    </label>
+    <textarea name="text"></textarea>
+    <button class="btn" type="submit">Save Note</button>
+  </form>
+  <a class="btn" href="">Update Note</a>
+  <a class="btn" href="">Delete Note</a>
+</section>
+
 <%- include('../partials/footer') %>
