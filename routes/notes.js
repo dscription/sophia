@@ -4,7 +4,7 @@ const notesCtrl = require('../controllers/notes')
 
 router.get('/topics/:topicId/contents/:contentId/newNote', notesCtrl.new);
 router.get('/contents/notes', notesCtrl.index);
-router.post('/topics/:topicId/contents/:contentId/newNote', notesCtrl.create);
+router.post('/topics/:topicId/contents/:contentId', notesCtrl.create);
 // update
 // delete
 

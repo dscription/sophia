@@ -12,12 +12,9 @@ module.exports = {
 }
 
 function create(req, res) {
-  console.log('creating content!')
   User.findById(req.user._id, function (err, user) {
     let topic = user.topics.id(req.params.id);
-    console.log('-----------request body', req.body)
     topic.contents.push(req.body)
-    console.log('-=-------new contents',topic.contents)
     user.save(function (err) {
       res.redirect(`/topics/${req.params.id}`)
     })

@@ -11,12 +11,31 @@ module.exports = {
 }
 
 function create(req,res) {
-  console.log('You have hit the create note route')
+  User.findById(req.user._id, function(err, user) {
+    let topic = user.topics.id(req.params.topicId);
+    topic.contents.forEach(content => {
+      if (content.id === req.params.contentId) {
+        content.notes.push(req.body)
+      }
+    })
+    user.save(function(err) {
+      res.redirect(`/topics/${req.params.topicId}`)
+    })
+  })
 }
 
+// function create(req, res) {
+//   User.findById(req.user._id, function (err, user) {
+//     let topic = user.topics.id(req.params.id);
+//     topic.contents.push(req.body)
+//     user.save(function (err) {
+//       res.redirect(`/topics/${req.params.id}`)
+//     })
+//   })
+// }
+
 function newNote(req,res) {
-  console.log('You have hit the new note route')
-  res.render('contents/newNote', {
+  res.render('notes/newNote', {
     title: 'Take Notes',
     user: req.user,
     topicId: req.params.topicId,

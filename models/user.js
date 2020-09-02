@@ -12,7 +12,7 @@ const contentSchema = new Schema({
   name: String,
   method: {type: String, enum: ['book', 'video', 'article', 'online course']},
   link: String,
-  notes: [],
+  notes: [notesSchema],
   completed: {type: Boolean, default: false},
   urgent: {type: Boolean, default: false}
 })
