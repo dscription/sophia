@@ -10,21 +10,19 @@
 
         <div class="card small col s4" id="topic-card">
           <div class="card-content col-content">
-            <%= topic.name %>
+            <h3><%= topic.name %></h2>
             <% if(topic.goalDate) { %>
-            <%=topic.goalDate%>
+            <span class="info"><%=topic.goalDate.toLocaleString()%></span>
+            
             <%} %>
           </div>
           <a class="btn" href="/topics/<%=topic.id%>">Expand Topic</a>
           <a href="/topics/<%=topic.id%>/remove" class="btn"><i class="material-icons">delete_forever</i></a>
-
         </div>
         <% }) %>
       </div>
     </div>
   </div>
-
-
 </div>
 
 <%- include('../partials/footer') %>

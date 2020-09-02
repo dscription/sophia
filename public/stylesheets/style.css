@@ -38,10 +38,6 @@ margin: 0;
   font-size: 2rem;
 }
 
-/* .info-section {
-  display: inline;
-} */
-
 #search-row form {
   padding-top: 20px;
 }
@@ -85,3 +81,20 @@ nav {
   margin: 10px;
 }
 
+.card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0px;
+}
+
+/* .card-content > .btn {
+  display:flex;
+  justify-content: flex-end;
+} */
+
+.heading {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
