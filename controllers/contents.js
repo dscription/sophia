@@ -1,5 +1,6 @@
 const User = require('../models/user');
-const user = require('../models/user');
+const MarkdownIt = require('markdown-it');
+let md = new MarkdownIt();
 
 module.exports = {
   create,
@@ -46,7 +47,6 @@ function newNote(req, res) {
     user: req.user,
     topicId: req.params.topicId,
     contentId: req.params.contentId
-
   })
 }
 
@@ -113,6 +113,7 @@ function showAllNotes(req, res) {
     title: 'All Notes',
     user: req.user,
     topics: req.user.topics,
-    topicId: req.params.topicId
+    topicId: req.params.topicId,
+    markdown: md
   })
 }

@@ -10,7 +10,8 @@
       <%topic.contents.forEach(content => {%>
       <% if(content.notes) { %>
       <h1>Topic Name: <%=topic.name%></h1>
-      <h1>Notes: <%=content.notes%></h1>
+      <%- markdown.render('#### h1')%>
+      <!-- // <h1>Notes: <%=content.notes%></h1> -->
       <%}%>
 
       <%})%>
