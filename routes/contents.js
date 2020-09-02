@@ -11,6 +11,7 @@ router.put('/topics/:topicId/contents/:contentId', contentsCtrl.update);
 router.get('/topics/:topicId/contents/:contentId/urgent', contentsCtrl.setUrgency);
 router.get('/topics/:topicId/contents/:contentId/completed', contentsCtrl.setCompleted);
 router.get('/contents/urgent', contentsCtrl.showAllUrgent);
+router.get('/contents/notes', contentsCtrl.showAllNotes);
 
 
 module.exports = router;

@@ -1,0 +1,24 @@
+<%- include('../partials/header') %>
+<h1>page works!</h1>
+<!-- user, topics, topicId -->
+
+
+<div class="container">
+  <div class="card">
+    <div class="card-content">
+      <% topics.forEach(topic => {%>
+      <%topic.contents.forEach(content => {%>
+      <% if(content.notes) { %>
+      <h1>Topic Name: <%=topic.name%></h1>
+      <h1>Notes: <%=content.notes%></h1>
+      <%}%>
+
+      <%})%>
+      <%})%>
+    </div>
+  </div>
+</div>
+
+
+
+<%- include('../partials/footer') %>
