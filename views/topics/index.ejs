@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
 
 
-<div class="container">
+<section class="container">
   <h1>Here are all of your topics</h1>
   <div class="card deep-purple lighten-3">
     <div class="card-content">
@@ -9,38 +9,68 @@
       <div class="row">
         <% topics.forEach((topic, idx) => { %>
         <% if (topic.isOpen) { %>
-        <div class="card small col s4" id="topic-card">
-          <div class="card-content col-content">
-            <h3><%= topic.name %></h2>
-              <% if(topic.goalDate) { %>
-              <span class="info"><%=topic.goalDate.toLocaleString()%></span>
 
-              <%} %>
+
+        <%if(topic.attention === 0){%>
+          <!-- render red -->
+          <div class="card small col s4 red darken-2" id="topic-card">
+            <div class="card-content col-content">
+              <h3><%= topic.name %></h2>
+                <h4>Completed: <%=topic.attention%></h2>
+                <% if(topic.goalDate) { %>
+                <span class="info"><%=topic.goalDate.toLocaleString()%></span>
+  
+                <%} %>
+            </div>
+            <a class="btn" href="/topics/<%=topic.id%>">Expand Topic</a>
+            <a href="/topics/<%=topic.id%>/remove" class="btn"><i class="material-icons">delete_forever</i></a>
           </div>
-          <a class="btn" href="/topics/<%=topic.id%>">Expand Topic</a>
-          <a href="/topics/<%=topic.id%>/remove" class="btn"><i class="material-icons">delete_forever</i></a>
-        </div>
+        <%} else if (topic.attention > 0 && topic.attention  < 6 ) {%></6>
+          <!-- render orange -->
+          <div class="card small col s4 amber darken-2" id="topic-card">
+            <div class="card-content col-content">
+              <h3><%= topic.name %></h2>
+                <h4>Completed: <%=topic.attention%></h2>
+                <% if(topic.goalDate) { %>
+                <span class="info"><%=topic.goalDate.toLocaleString()%></span>
+                <%} %>
+            </div>
+            <a class="btn" href="/topics/<%=topic.id%>">Expand Topic</a>
+            <a href="/topics/<%=topic.id%>/remove" class="btn"><i class="material-icons">delete_forever</i></a>
+          </div>
+        <%} else {%>
+          <!-- render green -->
+          <div class="card small col s4 green" id="topic-card">
+            <div class="card-content col-content">
+              <h3><%= topic.name %></h2>
+                <h4>Completed: <%=topic.attention%></h2>
+                <% if(topic.goalDate) { %>
+                <span class="info"><%=topic.goalDate.toLocaleString()%></span>
+  
+                <%} %>
+            </div>
+            <a class="btn" href="/topics/<%=topic.id%>">Expand Topic</a>
+            <a href="/topics/<%=topic.id%>/remove" class="btn"><i class="material-icons">delete_forever</i></a>
+          </div>
+        <%}%>  
+        
         <%}%>
         <% }) %>
       </div>
     </div>
   </div>
-  
-</div>
-<div class="container">
+</section>
+
+<section class="container">
   <div class="card deep-purple lighten-3">
     <div class="card-content">
       <h2>Closed Topics</h2>
       <div class="row">
         <% topics.forEach((topic, idx) => { %>
           <% if (!topic.isOpen) { %>
-            <div class="card small col s4" id="topic-card">
+            <div class="card small col s4 blue" id="topic-card">
               <div class="card-content col-content">
                 <h3><%= topic.name %></h2>
-                <% if(topic.goalDate) { %>
-                <span class="info"><%=topic.goalDate.toLocaleString()%></span>
-                
-                <%} %>
               </div>
               <a class="btn" href="/topics/<%=topic.id%>">Expand Topic</a>
               <a href="/topics/<%=topic.id%>/remove" class="btn"><i class="material-icons">delete_forever</i></a>
@@ -49,7 +79,7 @@
           <% }) %>
     </div>
   </div>
-</div>
+</section>
 
 
 <%- include('../partials/footer') %>

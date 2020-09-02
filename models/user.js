@@ -14,7 +14,7 @@ const contentSchema = new Schema({
 const topicSchema = new Schema({
   name: String,
   contents: [contentSchema],
-  attention: Number,
+  attention: {type: Number, default: 0},
   streak: Number,
   goal: String,
   goalDate: Date,
