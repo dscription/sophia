@@ -1,0 +1,57 @@
+<%- include('../partials/header') %>
+<!-- I have access to urgent here which is a list of content -->
+
+<div class="container">
+  <div class="card">
+    <ul class="collapsible">
+      <% topics.forEach(topic => { %>
+      <%topic.contents.forEach(content => {%>
+      <h1><%=content.name%></h1>
+      <li>
+        <div class="collapsible-header">
+          <h3><i class="material-icons">assignment</i> <%=content.name%></h3>
+          <%if (content.method === 'book'){%>
+          <h3><i class="material-icons">import_contacts</i> <%=content.method%></h3>
+          <%} else if (content.method === 'video') {%>
+          <h3><i class="material-icons">play_circle_outline</i> <%=content.method%></h3>
+          <%} else if (content.method === 'article') {%>
+          <h3><i class="material-icons">description</i> <%=content.method%></h3>
+          <%} else { %>
+          <h3><i class="material-icons">collections_bookmark</i> <%=content.method%></h3>
+          <%}%>
+                  <h3><i class="material-icons">insert_link</i><%=content.link%></h3>
+
+          <div class="buttons-row">
+            <a href="/topics/<%=topicId%>/contents/<%=content._id%>/newNote" class="btn">Add Notes</a>
+            <a href="/topics/<%=topicId%>/contents/<%=content._id%>/urgent"
+              class="btn"><%=content.urgent ? 'Deprioritize' : 'Proioritize'%></a>
+            <a href="/topics/<%=topicId%>/contents/<%=content._id%>/completed"
+              class="btn"><%=content.completed ? 'Task is completed!' : 'Complete'%></a>
+            <a href="/topics/<%=topicId%>/contents/<%=content._id%>/remove" class="btn"><i
+                class="material-icons">delete_forever</i></a>
+          </div>
+        </div>
+        <div class="collapsible-body">
+          <%if(content.notes === undefined){%>
+          <h3>No notes to show</h3>
+          <%} else {%>
+          <h2>Notes:</h2>
+          <div class="card" id="notes-card">
+            <div class="card-content">
+              <p><%=content.notes%></p>
+            </div>
+          </div>
+          <%}%>
+                </div>
+              </li>
+    
+        <% }) %>
+          <%})%>
+    </ul>
+
+  </div>
+
+</div>
+
+
+<%- include('../partials/footer') %>

@@ -1,4 +1,5 @@
 const User = require('../models/user');
+const user = require('../models/user');
 
 module.exports = {
   create, 
@@ -97,5 +98,5 @@ function setCompleted (req, res) {
 }
 
 function showAllUrgent(req, res) {
-  console.log('show all urgent contents')
+  res.render('contents/urgentIndex', { title: 'Urgent Content', user: req.user, topics: req.user.topics, topicId: req.params.topicId})
 }
