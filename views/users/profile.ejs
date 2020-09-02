@@ -45,23 +45,34 @@
             <h3><%=friend.name%>'s Topics</h3>
             <ul class="collapsible">
               <%friend.topics.forEach(friendTopic => {%>
-              <li>
-                <div class="collapsible-header">
-                  <h3><%=friendTopic.name%></h3>
-                </div>
-                <div class="collapsible-body">
-                  <%friendTopic.contents.forEach(content => { %>
-                  <div class="card">
-                    <div class="card-content">
-                      <h4><%=content.name%></h4>
-                      <h4><%=content.type%></h4>
-                      <h4><%=content.link%></h4>
-                      <h4><%=content.notes%></h4>
-                    </div>
+              <%if(friendTopic.contents.length > 0) {%>
+                <li>
+                  <div class="collapsible-header">
+                    <h3><%=friendTopic.name%></h3>
                   </div>
-                  <%})%>
-                </div>
-              </li>
+                  <div class="collapsible-body">
+                    <%friendTopic.contents.forEach(content => { %>
+                    <div class="card">
+                      <div class="card-content">
+                        <%if (content.method === 'book'){%>
+                        <h3><i class="material-icons">import_contacts</i> <%=content.name%></h3>
+                        <%} else if (content.method === 'video') {%>
+                        <h3><i class="material-icons">play_circle_outline</i> <%=content.name%></h3>
+                        <%} else if (content.method === 'article') {%>
+                        <h3><i class="material-icons">description</i> <%=content.name%></h3>
+                        <%} else { %>
+                        <h3><i class="material-icons">collections_bookmark</i> <%=content.name%></h3>
+                        <%}%>
+                        <h3><i class="material-icons">insert_link</i><%=content.link%></h3>
+                        <%if(content.notes){%>
+                        <h3><i class="material-icons">event_notes</i><%=content.notes%></h3>
+                        <%}%>
+                      </div>
+                    </div>
+                    <%})%>
+                      </div>
+                </li>
+              <%}%>
               <%})%>
             </ul>
           </div>
