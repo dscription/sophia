@@ -11,7 +11,9 @@
             <h1>Topic Name: <%=topic.name%></h1>
           </div>
           <div class="collapsible-body">
-            <%- markdown.render(note.text)%>
+              <%- markdown.render(note.text)%>
+            <a href="/topic/<%=topic._id%>/content/<%=content._id%>/notes/<%=note._id%>/updateView" class="btn">Update Note</a>
+            <a href="/topic/<%=topic._id%>/content/<%=content._id%>/notes/<%=note._id%>/remove" class="btn">Delete Note</a>
           </div>
         </li>
       <%})%>

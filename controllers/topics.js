@@ -22,12 +22,16 @@ function index(req, res) {
 
 function create(req, res) {
   User.findById(req.user._id, function (err, user) {
-    req.body.name.forEach(name => {
-      user.topics.push({"name": name});
-    })
-    user.save(function (err) {
-      res.redirect(`/users/profile`)
-    })
+    user.topics.push(req.body);
+    if (user.topics.length > 1) {
+      user.save(function (err) {
+        res.redirect(`/users/${req.user._id}/topics`)
+      })
+    } else {
+      user.save(function (err) {
+        res.redirect(`/users/profile`)
+      })
+    }
   })
 }
 
@@ -49,16 +53,16 @@ function update(req, res) {
     topic.goal = req.body.goal;
     topic.goalDate = req.body.goalDate;
     user.save(function (err) {
-     res.redirect(`/topics/${req.params.id}`)
+      res.redirect(`/topics/${req.params.id}`)
     })
   })
 }
 
 function removeTopic(req, res) {
   let topics = req.user.topics;
-  topics.forEach((topic,idx) => {
+  topics.forEach((topic, idx) => {
     if (topic.id === req.params.id) {
-      topics.splice(idx,1)
+      topics.splice(idx, 1)
     }
   })
   req.user.save().then(() => {
@@ -71,7 +75,7 @@ function setVisibility(req, res) {
     const topic = user.topics.id(req.params.id);
     topic.isPublic = !topic.isPublic;
     user.save(function (err) {
-     res.redirect(`/topics/${req.params.id}`)
+      res.redirect(`/topics/${req.params.id}`)
     })
   })
 }
@@ -82,7 +86,7 @@ function setOpenStatus(req, res) {
     const topic = user.topics.id(req.params.id);
     topic.isOpen = !topic.isOpen;
     user.save(function (err) {
-     res.redirect(`/users/${req.user.id}/topics`)
+      res.redirect(`/users/${req.user.id}/topics`)
     })
   })
 }

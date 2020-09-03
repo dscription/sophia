@@ -91,7 +91,9 @@
               <%content.notes.forEach(note => {%>
                 <h2>note title</h2>
                 <p><%=note.text%></p>
-                <button class="btn">Update note</button>
+                <!-- update note will take us to the note show view? -->
+                <!-- <a href="/topic/:id/content/:id/notes/:id" class="btn">Update Note</a> -->
+                <a href="/topic/<%=topicId%>/content/<%=content._id%>/notes/<%=note._id%>/remove" class="btn">Delete Note</a>
               <%})%>
             </div>
           </div>

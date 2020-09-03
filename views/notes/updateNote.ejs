@@ -1,0 +1,13 @@
+<%- include('../partials/header') %>
+<section class="container">
+  <form action="/topic/<%=topicId%>/content/<%=contentId%>/notes/<%=noteId%>/update?_method=PUT" method="POST">
+    <label for="noteTitle">
+      <input type="text" id="noteTitle" name="title" value="Give your note a title">
+    </label>
+    <textarea name="text"><%=note.text%></textarea>
+    <button class="btn" type="submit">Save Note</button>
+  </form>
+  <a class="btn" href="/topic/<%=topicId%>/content/<%=contentId%>/notes/<%=noteId%>/remove">Delete Note</a>
+</section>
+
+<%- include('../partials/footer') %>

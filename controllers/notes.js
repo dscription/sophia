@@ -6,25 +6,26 @@ module.exports = {
   create,
   new: newNote,
   index,
-  // update,
-  // delete: deleteNote
+  delete: deleteNote,
+  updateView,
+  update
 }
 
-function create(req,res) {
-  User.findById(req.user._id, function(err, user) {
+function create(req, res) {
+  User.findById(req.user._id, function (err, user) {
     let topic = user.topics.id(req.params.topicId);
     topic.contents.forEach(content => {
       if (content.id === req.params.contentId) {
         content.notes.push(req.body)
       }
     })
-    user.save(function(err) {
+    user.save(function (err) {
       res.redirect(`/topics/${req.params.topicId}`)
     })
   })
 }
 
-function newNote(req,res) {
+function newNote(req, res) {
   res.render('notes/newNote', {
     title: 'Take Notes',
     user: req.user,
@@ -33,8 +34,7 @@ function newNote(req,res) {
   })
 }
 
-function index(req,res) {
-  console.log('You have hit the ')
+function index(req, res) {
   res.render('notes/noteIndex', {
     title: 'All Notes',
     user: req.user,
@@ -44,11 +44,64 @@ function index(req,res) {
   })
 }
 
-// function update(req, res) {
-//   console.log('you have hit the update route')
-// }
-// function deleteNote(req, res) {
-//   console.log('you have hit the delete route')
-// }
 
+function deleteNote(req, res) {
+  User.findById(req.user._id, function (err, user) {
+    let topic = user.topics.id(req.params.topicId);
+    console.log('----topic------',topic)
+    topic.contents.forEach(content => {
+      if (content.id === req.params.contentId) {
+        content.notes.forEach((note, idx) => {
+          if (note.id === req.params.noteId) {
+            content.notes.splice(idx, 1)
+          }
+        })
+      }
+    })
+    user.save(function (err) {
+      res.redirect(req.headers.referer)
+    })
+  })
+}
 
+function update(req, res) {
+  console.log('update route hit!', req.body)
+  User.findById(req.user._id, function (err, user) {
+    let topic = user.topics.id(req.params.topicId);
+    topic.contents.forEach(content => {
+      if (content.id === req.params.contentId) {
+        content.notes.forEach((note, idx) => {
+          if (note.id === req.params.noteId) {
+            note.title = req.body.title;
+            note.text = req.body.text
+          }
+        })
+      }
+    })
+    user.save(function (err) {
+      res.redirect(req.headers.referer)
+    })
+  })
+}
+
+function updateView(req, res) {
+  User.findById(req.user._id, function (err, user) {
+    let topic = user.topics.id(req.params.topicId);
+    topic.contents.forEach(content => {
+      if (content.id === req.params.contentId) {
+        content.notes.forEach((note, idx) => {
+          if (note.id === req.params.noteId) {
+            res.render('notes/updateNote', {
+              title: 'Update Note',
+              user: req.user,
+              topicId: req.params.topicId,
+              contentId: req.params.contentId,
+              noteId: req.params.noteId,
+              note: note
+            })
+          }
+        })
+      }
+    })
+  })
+}
