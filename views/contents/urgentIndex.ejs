@@ -1,6 +1,4 @@
 <%- include('../partials/header') %>
-<!-- I have access to urgent here which is a list of content -->
-
 <div class="container">
   <div class="card">
     <ul class="collapsible">
@@ -35,11 +33,15 @@
           <h3>No notes to show</h3>
           <%} else {%>
           <h2>Notes:</h2>
+          <%content.notes.forEach(note => {%>
           <div class="card" id="notes-card">
             <div class="card-content">
-              <p><%=content.notes%></p>
+              <h3><%=note.title%></h3>
+              <p><%=note.text%></p>
             </div>
           </div>
+
+          <%})%>
           <%}%>
                 </div>
               </li>

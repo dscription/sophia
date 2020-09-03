@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
 <div class="container">
   <h2>Select any areas you are interested in studying below</h2>
-  <form action="/users/:id/topics" method="POST">
+  <form action="/users/<%=user._id%>/topics" method="POST">
     <div class="row">
       <% topicsList.forEach((topic,idx) => { %>
       <div class="col s3">

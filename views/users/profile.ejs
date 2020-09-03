@@ -26,8 +26,8 @@
 </div>
 <% }%>
 <div class="container">
-  <%console.log(friends)%>
   <% friends.forEach(friend => { %>
+    <%console.log(friend)%>
   <div class="card">
     <div class="card-content">
       <h3>Friends</h3>
@@ -42,37 +42,36 @@
             <span class="info"><%=friend.alias%> if there was an alias here</span>
             <span class="info"><%=friend.bio%>if there was a bio here</span>
 
-
             <h3><%=friend.name%>'s Topics</h3>
             <ul class="collapsible">
               <%friend.topics.forEach(friendTopic => {%>
               <%if(friendTopic.contents.length > 0) {%>
-                <li>
-                  <div class="collapsible-header">
-                    <h3><%=friendTopic.name%></h3>
-                  </div>
-                  <div class="collapsible-body">
-                    <%friendTopic.contents.forEach(content => { %>
-                    <div class="card">
-                      <div class="card-content">
-                        <%if (content.method === 'book'){%>
-                        <h3><i class="material-icons">import_contacts</i> <%=content.name%></h3>
-                        <%} else if (content.method === 'video') {%>
-                        <h3><i class="material-icons">play_circle_outline</i> <%=content.name%></h3>
-                        <%} else if (content.method === 'article') {%>
-                        <h3><i class="material-icons">description</i> <%=content.name%></h3>
-                        <%} else { %>
-                        <h3><i class="material-icons">collections_bookmark</i> <%=content.name%></h3>
-                        <%}%>
+              <li>
+                <div class="collapsible-header">
+                  <h3><%=friendTopic.name%></h3>
+                </div>
+                <div class="collapsible-body">
+                  <%friendTopic.contents.forEach(content => { %>
+                  <div class="card">
+                    <div class="card-content">
+                      <%if (content.method === 'book'){%>
+                      <h3><i class="material-icons">import_contacts</i> <%=content.name%></h3>
+                      <%} else if (content.method === 'video') {%>
+                      <h3><i class="material-icons">play_circle_outline</i> <%=content.name%></h3>
+                      <%} else if (content.method === 'article') {%>
+                      <h3><i class="material-icons">description</i> <%=content.name%></h3>
+                      <%} else { %>
+                      <h3><i class="material-icons">collections_bookmark</i> <%=content.name%></h3>
+                      <%}%>
                         <h3><i class="material-icons">insert_link</i><%=content.link%></h3>
-                        <%if(content.notes){%>
-                        <h3><i class="material-icons">event_notes</i><%=content.notes%></h3>
-                        <%}%>
+                      <%if(content.notes){%>
+                      <h3><i class="material-icons">event_notes</i><%=content.notes%></h3>
+                      <%}%>
                       </div>
                     </div>
                     <%})%>
-                      </div>
-                </li>
+                    </div>
+              </li>
               <%}%>
               <%})%>
             </ul>

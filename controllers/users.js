@@ -13,6 +13,8 @@ module.exports = {
 function index(req, res) {
   User.find({})
     .then(users => {
+      console.log(users)
+      console.log(req.user)
       res.render('users/index', {
         user: req.user,
         title: 'Welcome',
@@ -41,8 +43,7 @@ function newProfile(req, res) {
 
 function onboarding(req, res) {
   if (req.user.topics.length > 0) {
-    // if the user has at least one topic already then render the show profile view.
-    res.redirect('/users/:id/topics')
+    res.redirect(`/users/${req.user._id}/topics`)
   } else {
     res.render('users/onboarding', {
       title: 'onboarding',

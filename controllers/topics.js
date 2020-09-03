@@ -22,16 +22,12 @@ function index(req, res) {
 
 function create(req, res) {
   User.findById(req.user._id, function (err, user) {
-    user.topics.push(req.body);
-    if (user.topics.length > 1) {
-      user.save(function (err) {
-        res.redirect(`/users/${req.user._id}/topics`)
-      })
-    } else {
-      user.save(function (err) {
-        res.redirect(`/users/profile`)
-      })
-    }
+    req.body.name.forEach(name => {
+      user.topics.push({"name":name})
+    })
+    user.save(function (err) {
+      res.redirect(`/users/${req.user._id}/topics`)
+    })
   })
 }
 
