@@ -2,7 +2,7 @@
 <div class="container">
   <div class="card deep-purple lighten-3">
     <div class="card-content">
-      <div class="heading">
+      <div class="heading valign-wrapper">
         <h1><%= title%></h1>
         <a href="/topics/<%=topicId%>/isOpen" class="btn">Close Topic</a>
         <a href="/topics/<%=topicId%>/isPublic" class="btn">
@@ -15,8 +15,8 @@
         <div class="card-content">
           <form action="/topics/<%=topicId%>?_method=PUT" method="POST">
 
-            <h2>What is your end goal with studying <%=title%></h2>
-            <input type="text" name="goal">
+            <h2>What is your end goal for studying <%=title%>?</h2>
+            <input type="text" name="goal" placeholder="Write goal here">
             <h2>Do you have an end date in mind?</h2>
             <input type="date" name="goalDate">
 

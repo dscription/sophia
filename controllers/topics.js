@@ -22,9 +22,14 @@ function index(req, res) {
 
 function create(req, res) {
   User.findById(req.user._id, function (err, user) {
-    req.body.name.forEach(name => {
-      user.topics.push({"name":name})
-    })
+    console.log('req.body on create --------',typeof(req.body.name))
+    if (typeof(req.body.name) === 'string') {
+      user.topics.push(req.body)
+    } else {
+      req.body.name.forEach(name => {
+        user.topics.push({"name":name})
+      })
+    }
     user.save(function (err) {
       res.redirect(`/users/${req.user._id}/topics`)
     })

@@ -15,13 +15,14 @@ html {
  }
  
 body {
-background-color: gray;
+  /* background-color: #7e57c2 */
+/* background-color: gray; */
 font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
   Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 height: 100vh;
 margin: 0;
 }
-
+/* Logo */
 .brand-logo {
   margin-left: 15px;
 }
@@ -30,9 +31,40 @@ margin: 0;
   font-size: 4rem;
 }
 
+.container {
+  height: 100vh
+}
+
 .nav-links {
   font-size: 1.75rem;
 }
+
+/* Text */
+
+h1 {
+  font-size:5rem;
+}
+
+h2 {
+  font-size: 4.5rem
+}
+
+h3 {
+font-size: 3rem
+}
+
+h4 { 
+  font-size: 2rem
+}
+p {
+  font-size: 1.5rem;
+}
+
+label {
+  font-size: 2rem;
+}
+
+
 
 .info {
   font-size: 2rem;
@@ -40,14 +72,6 @@ margin: 0;
 
 #search-row form {
   padding-top: 20px;
-}
-
-label {
-  font-size: 1.5rem;
-}
-
-p {
-  font-size: 2rem;
 }
 
 #notes-card {
@@ -75,26 +99,45 @@ nav {
   font-family: 'Lobster Two', cursive;
 }
 
-#topic-card {
-  max-width: 250px;
-  max-height: 250px;
-  margin: 10px;
-}
-
 .card-content {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 0px;
 }
 
-/* .card-content > .btn {
-  display:flex;
-  justify-content: flex-end;
-} */
+
 
 .heading {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+#topic-name {
+  font-size: 2.5rem;
+}
+
+#topics-card {
+  padding:20px;
+}
+
+/* .row > .col {
+padding: 0 2rem;
+} */
+
+#input-row {
+  padding: 5px 10px;
+}
+
+label {
+  color: black;
+}
+
+#user-card {
+  display: flex;
+  flex-direction: row
+}
+
+.collapsible-body {
+  background-color: white;
 }
