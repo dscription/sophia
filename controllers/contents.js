@@ -34,7 +34,7 @@ function deleteOne(req, res) {
     }
   })
   req.user.save().then(() => {
-    res.redirect(`/topics/${req.params.topicId}`)
+    res.redirect(req.headers.referer)
   })
 }
 
@@ -64,7 +64,7 @@ function setUrgency(req, res) {
       }
     })
     user.save(function (err) {
-      res.redirect(`/topics/${req.params.topicId}`)
+      res.redirect(req.headers.referer)
     })
   })
 }
@@ -82,7 +82,7 @@ function setCompleted(req, res) {
       }
     })
     user.save(function (err) {
-      res.redirect(`/topics/${req.params.topicId}`)
+      res.redirect(req.headers.referer)
     })
   })
 }
@@ -92,7 +92,6 @@ function showAllUrgent(req, res) {
     title: 'Urgent Content',
     user: req.user,
     topics: req.user.topics,
-    topicId: req.params.topicId
   })
 }
 

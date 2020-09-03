@@ -18,15 +18,15 @@
           <%} else { %>
           <h3><i class="material-icons">collections_bookmark</i> <%=content.method%></h3>
           <%}%>
-                  <h3><i class="material-icons">insert_link</i><%=content.link%></h3>
+          <h3><i class="material-icons">insert_link</i><%=content.link%></h3>
 
           <div class="buttons-row">
-            <a href="/topics/<%=topicId%>/contents/<%=content._id%>/newNote" class="btn">Add Notes</a>
-            <a href="/topics/<%=topicId%>/contents/<%=content._id%>/urgent"
+            <a href="/topics/<%=topic._id%>/contents/<%=content._id%>/newNote" class="btn">Add Notes</a>
+            <a href="/topics/<%=topic._id%>/contents/<%=content._id%>/urgent"
               class="btn"><%=content.urgent ? 'Deprioritize' : 'Proioritize'%></a>
-            <a href="/topics/<%=topicId%>/contents/<%=content._id%>/completed"
+            <a href="/topics/<%=topic._id%>/contents/<%=content._id%>/completed"
               class="btn"><%=content.completed ? 'Task is completed!' : 'Complete'%></a>
-            <a href="/topics/<%=topicId%>/contents/<%=content._id%>/remove" class="btn"><i
+            <a href="/topics/<%=topic._id%>/contents/<%=content._id%>/remove" class="btn"><i
                 class="material-icons">delete_forever</i></a>
           </div>
         </div>
