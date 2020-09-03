@@ -63,6 +63,7 @@ function update(req, res) {
 }
 
 function addFriend(req, res) {
+  console.log('adding friend!')
   User.findById(req.params.id, function(err, user) {
     user.friends.push(req.params.id)
   })

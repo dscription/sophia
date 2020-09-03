@@ -16,6 +16,7 @@
   <div>
     <div class="card">
       <div class="card-content">
+        <img width="30" id="avatarPhoto" src="<%= user.avatar %>" alt="">
         <h3>Name: <span class="info"><%= user.name%></span></h3>
         <h3>E-mail: <span class="info"><%= user.email %></span></h3>
         <h3>Alias: <span class="info"><%= user.name%></span></h3>
@@ -27,7 +28,6 @@
 <% }%>
 <div class="container">
   <% friends.forEach(friend => { %>
-    <%console.log(friend)%>
   <div class="card">
     <div class="card-content">
       <h3>Friends</h3>
@@ -36,6 +36,7 @@
           <div class="collapsible-header">
             <div><span class="info"><%=friend.name%></span>
               <!-- Add google avatar here -->
+              <img width="30" id="avatarPhoto" src="<%= friend.avatar %>" alt="">
               <a class="btn" href="/users/<%=friend.id%>/unfriend">Remove Friend</a></div>
           </div>
           <div class="collapsible-body">
