@@ -4,7 +4,7 @@
     <div class="card-content">
       <div class="heading valign-wrapper">
         <h1><%= title%></h1>
-        <a href="/topics/<%=topicId%>/isOpen" class="btn">Close Topic</a>
+        <a href="/topics/<%=topicId%>/isOpen" class="btn">Close</a>
         <a href="/topics/<%=topicId%>/isPublic" class="btn">
           <i class="material-icons"><%=topic.isPublic ? 'visibility' : 'visibility_off'%></i>
         </a>
@@ -30,14 +30,15 @@
 
       <div class="card">
         <div class="card-content">
-          <h2>add content</h2>
+          <h3>Add Lesson</h3>
           <form action="/users/<%=user.id%>/topics/<%=topicId%>/contents" method="POST">
-            <label for="addContentName">Add Name</label>
-            <input type="text" name="name" id="addContentName" value="add content name">
+            <label for="addContentName">Lesson Name</label>
+            <input type="text" name="name" id="addContentName">
             <label for="addContentLink">Content Link</label>
-            <input type="text" name="link" id="addContentLink" value="add content link">
+            <input type="text" name="link" id="addContentLink">
             <div class="input-field col s12">
-              <select name="method" multiple>
+            <label for="contentType">Content Type</label>
+              <select name="method" id="contentType" multiple>
                 <option value="book">Book</option>
                 <option value="video">Video</option>
                 <option value="article">Article</option>
@@ -49,8 +50,6 @@
         </div>
       </div>
       <%}%>
-
-      
 
         <section>
           <h2>In Progress</h2>
@@ -80,20 +79,22 @@
           <%} else { %>
           <h3><i class="material-icons">collections_bookmark</i> <%=content.method%></h3>
           <%}%>
-            <h3><i class="material-icons">insert_link</i><%=content.link%></h3>
+            <h3><i class="material-icons">insert_link</i><a href="<%-content.link%>" target=_blank"><%=content.link%></a></h3>
           <%if(content.notes.length === 0){%>
           <h3>No notes to show</h3>
           <%} else {%>
           <h2>Notes:</h2>
-          <div class="card" id="notes-card">
-            <div class="card-content">
-              
+          <div class="card" id="notes">
+            <div class="card-content" id="note-card">
+
               <%content.notes.forEach(note => {%>
-                <h2>note title</h2>
-                <p><%=note.text%></p>
-                <!-- update note will take us to the note show view? -->
-                <!-- <a href="/topic/:id/content/:id/notes/:id" class="btn">Update Note</a> -->
-                <a href="/topic/<%=topicId%>/content/<%=content._id%>/notes/<%=note._id%>/remove" class="btn">Delete Note</a>
+              
+              <%-markdown.render(note.title)%>
+              <%-markdown.render(note.text)%>
+              <div id="button-row"></div>
+              <a href="/topic/<%=topicId%>/content/<%=content._id%>/notes/<%=note._id%>/updateView" class="btn">Update Note</a>
+              <a href="/topic/<%=topicId%>/content/<%=content._id%>/notes/<%=note._id%>/remove" class="btn">Delete
+                Note</a>
               <%})%>
             </div>
           </div>
@@ -109,6 +110,7 @@
           <section>
             <h2>Completed</h2>
             <ul class="collapsible">
+
               <%topic.contents.forEach(content => { %>
               <%if (content.completed) {%>
               <li>

@@ -1,35 +1,33 @@
 html {
   box-sizing: border-box
- }
- 
- /* The Universal Selector */
- *, /* All elements*/
- *::before, /* All ::before pseudo-elements */
- *::after { /* All ::after pseudo-elements */
+}
+
+/* The Universal Selector */
+*,
+/* All elements*/
+*::before,
+/* All ::before pseudo-elements */
+*::after {
+  /* All ::after pseudo-elements */
   /* height & width will now include border & padding by default
      but can be over-ridden as needed */
   box-sizing: inherit;
- }
- :root {
-  font-size: 62.5%
- }
- 
-body {
-  /* background-color: #7e57c2 */
-/* background-color: gray; */
-font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-  Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-height: 100vh;
-margin: 0;
-}
-/* Logo */
-.brand-logo {
-  margin-left: 15px;
 }
 
-#logo-text {
-  font-size: 4rem;
+:root {
+  font-size: 62.5%
 }
+
+body {
+  /* background-color: #7e57c2 */
+  /* background-color: gray; */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  height: 100vh;
+  margin: 0;
+}
+
+
 
 .container {
   height: 100vh
@@ -42,7 +40,7 @@ margin: 0;
 /* Text */
 
 h1 {
-  font-size:5rem;
+  font-size: 5rem;
 }
 
 h2 {
@@ -50,12 +48,13 @@ h2 {
 }
 
 h3 {
-font-size: 3rem
+  font-size: 3rem
 }
 
-h4 { 
+h4 {
   font-size: 2rem
 }
+
 p {
   font-size: 1.5rem;
 }
@@ -75,7 +74,7 @@ label {
 }
 
 #notes-card {
-  background-color:lightgray;
+  background-color: lightgray;
 }
 
 #friend {
@@ -84,28 +83,51 @@ label {
 
 .collapsible-header {
   display: flex;
-  flex-direction:column
+  flex-direction: column
 }
 
 body {
   background-color: #7e57c2
 }
 
+/* nav */
 nav {
   background-color: #b39ddb
 }
 
+
+
+/* Logo */
+.brand-logo {
+  margin-left: 15px;
+}
+
 #logo-text {
   font-family: 'Lobster Two', cursive;
+  font-size: 4rem;
 }
+
+
+/* sidenav */
+.sidenav {
+  background-color: #b39ddb;
+}
+
+.sidenav li {
+  margin: 40px auto;
+}
+
+.sidenav li>a {
+  font-size: 3rem;
+}
+
+
 
 .card-content {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-
-
 
 .heading {
   display: flex;
@@ -118,12 +140,9 @@ nav {
 }
 
 #topics-card {
-  padding:20px;
+  padding: 20px;
 }
 
-/* .row > .col {
-padding: 0 2rem;
-} */
 
 #input-row {
   padding: 5px 10px;
@@ -139,5 +158,13 @@ label {
 }
 
 .collapsible-body {
-  background-color: white;
+  background-color: white
 }
+
+#notes {
+  background-color: darkblue;
+  height: 70vh;
+  color: white;
+  font-size: 3rem;
+}
+

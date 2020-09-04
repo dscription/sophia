@@ -43,7 +43,8 @@ function show(req, res) {
       title: topic.name,
       topic: topic,
       user: req.user,
-      topicId: req.params.id
+      topicId: req.params.id,
+      markdown: md
     })
   })
 }
