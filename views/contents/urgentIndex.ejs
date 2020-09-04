@@ -1,5 +1,8 @@
 <%- include('../partials/header') %>
 <div class="container">
+  <div class="center-align">
+    <h1>Urgent Assignments</h1>
+  </div>
   <div class="card">
     <ul class="collapsible">
       <% topics.forEach(topic => { %>
@@ -19,34 +22,34 @@
 
           <div class="buttons-row">
             <a href="/topics/<%=topic._id%>/contents/<%=content._id%>/newNote" class="btn">Add Notes</a>
-            <a href="/topics/<%=topic._id%>/contents/<%=content._id%>/urgent"
-              class="btn"><%=content.urgent ? 'Deprioritize' : 'Proioritize'%></a>
-            <a href="/topics/<%=topic._id%>/contents/<%=content._id%>/completed"
-              class="btn"><%=content.completed ? 'Task is completed!' : 'Complete'%></a>
-            <a href="/topics/<%=topic._id%>/contents/<%=content._id%>/remove" class="btn"><i
-                class="material-icons">delete_forever</i></a>
-          </div>
+          <a href="/topics/<%=topic._id%>/contents/<%=content._id%>/urgent"
+            class="btn"><%=content.urgent ? 'Deprioritize' : 'Proioritize'%></a>
+          <a href="/topics/<%=topic._id%>/contents/<%=content._id%>/completed"
+            class="btn"><%=content.completed ? 'Task is completed!' : 'Complete'%></a>
+          <a href="/topics/<%=topic._id%>/contents/<%=content._id%>/remove" class="btn"><i
+              class="material-icons">delete_forever</i></a>
         </div>
-        <div class="collapsible-body">
-          <%if(content.notes.length === 0){%>
-          <h3>No notes to show</h3>
-          <%} else {%>
-          <h2>Notes:</h2>
-          <%content.notes.forEach(note => {%>
-          <div class="card" id="notes-card">
-            <div class="card-content">
-              <h3><%=note.title%></h3>
-              <p><%=note.text%></p>
-            </div>
-          </div>
+  </div>
+  <div class="collapsible-body">
+    <%if(content.notes.length === 0){%>
+    <h3>No notes to show</h3>
+    <%} else {%>
+    <h2>Notes:</h2>
+    <%content.notes.forEach(note => {%>
+    <div class="card" id="notes">
+      <div class="card-content">
+        <%-markdown.render(note.title)%>
+        <%-markdown.render(note.text)%>
+      </div>
+    </div>
 
-          <%})%>
-          <%}%>
+    <%})%>
+    <%}%>
                 </div>
               </li>
     
         <% }) %>
-          <%})%>
+    <%})%>
     </ul>
 
   </div>

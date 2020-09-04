@@ -22,12 +22,14 @@
         <div class="collapsible-body">
           <ul>
             <%u.topics.forEach(topic => {%>
+            <%if(topic.isPublic) {%>
             <% topic.contents.forEach(content => {%>
             <li>
               <h4>Topic: <%=topic.name%></h4>
               <h4>Assignment: <%=content.name%></h4>
             </li>
             <%})%>
+            <%}%>
             <%})%>
           </ul>
         </div>

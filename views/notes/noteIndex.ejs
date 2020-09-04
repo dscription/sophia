@@ -6,20 +6,26 @@
   <ul class="collapsible">
     <% topics.forEach(topic => {%>
     <%topic.contents.forEach(content => {%>
-      <%content.notes.forEach(note => {%>
-        <li>
-          <div class="collapsible-header">
-            <h1>Topic Name: <%=topic.name%></h1>
+    <%content.notes.forEach(note => {%>
+    <li>
+      <div class="collapsible-header">
+        <h1>Topic Name: <%=topic.name%></h1>
+      </div>
+      <div class="collapsible-body">
+        <div class="card">
+          <div class="card-content" id="notes">
+            <%- markdown.render(note.title)%>
+            <%- markdown.render(note.text)%>
           </div>
-          <div class="collapsible-body">
-              <%- markdown.render(note.title)%>
-              <%- markdown.render(note.text)%>
-            <a href="/topic/<%=topic._id%>/content/<%=content._id%>/notes/<%=note._id%>/updateView" class="btn">Update Note</a>
-            <a href="/topic/<%=topic._id%>/content/<%=content._id%>/notes/<%=note._id%>/remove" class="btn">Delete Note</a>
-          </div>
-        </li>
-      <%})%>
-      <%})%>
+        </div>
+        <a href="/topic/<%=topic._id%>/content/<%=content._id%>/notes/<%=note._id%>/updateView" class="btn">Update
+          Note</a>
+        <a href="/topic/<%=topic._id%>/content/<%=content._id%>/notes/<%=note._id%>/remove" class="btn">Delete Note</a>
+
+      </div>
+    </li>
+    <%})%>
+    <%})%>
     <%})%>
   </ul>
 </section>

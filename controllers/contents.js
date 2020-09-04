@@ -92,6 +92,7 @@ function showAllUrgent(req, res) {
     title: 'Urgent Content',
     user: req.user,
     topics: req.user.topics,
+    markdown: md
   })
 }
 

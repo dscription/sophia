@@ -2,7 +2,9 @@
 
 <div class="container">
   <section>
-    <h1>Your Selected Topics</h1>
+    <div class="center-align">
+      <h1>Your Selected Topics</h1>
+    </div>
     <div class="card deep-purple lighten-3">
       <form class="col s12" action="/users/<%=user._id%>/topics" method="POST">
         <div class="row valign-wrapper" id="input-row">
@@ -20,12 +22,12 @@
   </section>
   <section>
     <div class="card deep-purple lighten-3" id="topics-card">
-      <h2>Open Topics</h2>
+      <div class="center-align">
+        <h2>Open Topics</h2>
+      </div>
       <div class="row">
         <% topics.forEach((topic, idx) => { %>
         <% if (topic.isOpen) { %>
-
-
         <%if(topic.attention === 0){%>
         <!-- render red -->
         <div class="card small col s4 red darken-2">
@@ -70,7 +72,9 @@
 
   <section>
     <div class="card deep-purple lighten-3" id="topics-card">
-      <h2>Closed Topics</h2>
+      <div class="center-align">
+        <h2>Closed Topics</h2>
+      </div>
       <div class="row">
         <% topics.forEach((topic, idx) => { %>
         <% if (!topic.isOpen) { %>

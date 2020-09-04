@@ -1,7 +1,9 @@
 <%- include('../partials/header') %>
 <section class="container">
   <form action="/topic/<%=topicId%>/content/<%=contentId%>/notes/<%=noteId%>/update?_method=PUT" method="POST">
-    <h1>Update Your Note</h1>
+    <div class="center-align">
+      <h1>Update Your Note</h1>
+    </div>
     <label for="noteTitle">
       <input type="text" id="noteTitle" name="title" value="Give your note a title">
     </label>
