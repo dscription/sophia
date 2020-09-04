@@ -3,6 +3,15 @@
 ## Project Inspiration
 I have spent my professional career as a personal trainer and entrepreneur, yet I consider myself to be a Polymath. I have always been curious about many things and felt the need to always be learning something interesting and new. I learn by reading books and articles, watching youtube videos, and taking online courses. I enjoy spending my time learning but  find that he I am not as organized or disciplined as I would like to be. I keep journal which helps bring me clarity for short periods of time, but then lose track of what I am learning, or starts focusing in on one topic and then lose sight of my other interests. I wants to be able to house all of his interests in one place so I can keep my interests on top of mind and not lose sight of what I have commited to learn.
 
+## Technologies Used
+- HTML, CSS, JavaScript
+- NodeJs
+- Google Auth
+- Markdown It
+- Mongoose
+- MongoDB
+- PassportJS
+
 ## User Stories
 
 - AAU, I should be able to log into my app with Google OAuth.
