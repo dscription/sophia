@@ -86,9 +86,7 @@
           <h2>Notes:</h2>
           <div class="card" id="notes">
             <div class="card-content" id="note-card">
-
               <%content.notes.forEach(note => {%>
-              
               <%-markdown.render(note.title)%>
               <%-markdown.render(note.text)%>
               <div id="button-row"></div>
@@ -110,13 +108,11 @@
           <section>
             <h2>Completed</h2>
             <ul class="collapsible">
-
               <%topic.contents.forEach(content => { %>
               <%if (content.completed) {%>
               <li>
                 <div class="collapsible-header">
                   <h3><i class="material-icons">assignment</i> <%=content.name%></h3>
-
                 </div>
                 <div class="collapsible-body">
                   <%if (content.method === 'book'){%>

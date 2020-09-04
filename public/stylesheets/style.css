@@ -27,8 +27,6 @@ body {
   margin: 0;
 }
 
-
-
 .container {
   height: 100vh
 }
@@ -63,8 +61,6 @@ label {
   font-size: 2rem;
 }
 
-
-
 .info {
   font-size: 2rem;
 }
@@ -95,8 +91,6 @@ nav {
   background-color: #b39ddb
 }
 
-
-
 /* Logo */
 .brand-logo {
   margin-left: 15px;
@@ -106,7 +100,6 @@ nav {
   font-family: 'Lobster Two', cursive;
   font-size: 4rem;
 }
-
 
 /* sidenav */
 .sidenav {
@@ -120,8 +113,6 @@ nav {
 .sidenav li>a {
   font-size: 3rem;
 }
-
-
 
 .card-content {
   display: flex;
@@ -142,7 +133,6 @@ nav {
 #topics-card {
   padding: 20px;
 }
-
 
 #input-row {
   padding: 5px 10px;
