@@ -23,11 +23,12 @@ function index(req, res) {
 
 function showProfile(req, res) {
   User.findById(req.user._id).populate('friends')
-    .then((user) => {
+    .then((friends) => {
+      console.log("---------friends------",friends)
       res.render('users/profile', {
         title: 'Profile Page',
-        user,
-        friends: user.friends
+        user: req.user,
+        friends: friends.friends
       })
     })
 }
@@ -61,12 +62,11 @@ function update(req, res) {
 }
 
 function addFriend(req, res) {
-  console.log('adding friend!')
-  User.findById(req.params.id, function(err, user) {
+  User.findById(req.user._id, function(err, user) {
     user.friends.push(req.params.id)
-  })
-  req.user.save().then(() => {
-    res.redirect('/')
+    user.save().then(() => {
+      res.redirect('/')
+    })
   })
 }
 

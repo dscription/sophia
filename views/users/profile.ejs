@@ -2,8 +2,6 @@
 
 <div class="container">
   <h1>You have arrived at your profile.</h1>
-
-
   <% if (!user.name && !user.bio) { %>
   <form action="/topics/<%=topicId%>?_method=PUT" method="POST">
     <h2>What is your end goal with studying <%=title%></h2>
@@ -16,7 +14,7 @@
   <div>
     <div class="card">
       <div class="card-content">
-        <img width="30" id="avatarPhoto" src="<%= user.avatar %>" alt="">
+        <img width="100" class="circle" id="avatarPhoto" src="<%= user.avatar %>" alt="">
         <h3>Name: <span class="info"><%= user.name%></span></h3>
         <h3>E-mail: <span class="info"><%= user.email %></span></h3>
         <h3>Alias: <span class="info"><%= user.name%></span></h3>
@@ -24,9 +22,8 @@
       </div>
     </div>
   </div>
-</div>
-<% }%>
-<div class="container">
+  <!-- <% }%> -->
+
   <% friends.forEach(friend => { %>
   <div class="card">
     <div class="card-content">
@@ -35,7 +32,6 @@
         <li>
           <div class="collapsible-header">
             <div><span class="info"><%=friend.name%></span>
-              <!-- Add google avatar here -->
               <img width="30" id="avatarPhoto" src="<%= friend.avatar %>" alt="">
               <a class="btn" href="/users/<%=friend.id%>/unfriend">Remove Friend</a></div>
           </div>
@@ -64,17 +60,17 @@
                       <%} else { %>
                       <h3><i class="material-icons">collections_bookmark</i> <%=content.name%></h3>
                       <%}%>
-                        <h3><i class="material-icons">insert_link</i><%=content.link%></h3>
+                          <h3><i class="material-icons">insert_link</i><%=content.link%></h3>
                       <%if(content.notes){%>
                       <h3><i class="material-icons">event_notes</i><%=content.notes%></h3>
                       <%}%>
+                        </div>
                       </div>
-                    </div>
-                    <%})%>
+                      <%})%>
                     </div>
               </li>
               <%}%>
-              <%})%>
+                <%})%>
             </ul>
           </div>
         </li>
@@ -84,6 +80,4 @@
   <%})%>
 </div>
 </div>
-
-
 <%- include('../partials/footer') %>
