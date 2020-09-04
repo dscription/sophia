@@ -1,16 +1,9 @@
 <%- include('../partials/header') %>
 
 <div class="container">
-  <h1>You have arrived at your profile.</h1>
-  <% if (!user.name && !user.bio) { %>
-  <form action="/topics/<%=topicId%>?_method=PUT" method="POST">
-    <h2>What is your end goal with studying <%=title%></h2>
-    <input type="text" name="goal">
-    <h2>Do you have an end date in mind?</h2>
-    <input type="date" name="goalDate">
-    <button type="submit" class="btn">Submit</button>
-  </form>
-  <% } else { %>
+  <div class="center-align">
+    <h1>You have arrived at your profile.</h1>
+  </div>
   <div>
     <div class="card">
       <div class="card-content">
@@ -22,8 +15,6 @@
       </div>
     </div>
   </div>
-  <!-- <% }%> -->
-
   <% friends.forEach(friend => { %>
   <div class="card">
     <div class="card-content">

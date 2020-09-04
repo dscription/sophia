@@ -1,0 +1,23 @@
+<%- include('../partials/header') %>
+<div class="center-align">
+  <h1>Update Profile Info</h1>
+</div>
+<% if (!user.bio) { %>
+  <form action="/users/profile?_method=PUT" method="POST">
+    <img width="100" class="circle" id="avatarPhoto" src="<%= user.avatar %>" alt="">
+    <label for="">Name:</label>
+    <input type="text">
+    <label for="">E-Mail:</label>
+    <input type="text">
+    <label for="">Alias:</label>
+    <input type="text">
+    <label for="">Bio:</label>
+    <textarea name="" id="" cols="30" rows="10"></textarea>
+    <h3>Name: <span class="info"><%= user.name%></span></h3>
+    <h3>E-mail: <span class="info"><%= user.email %></span></h3>
+    <h3>Alias: <span class="info"><%= user.name%></span></h3>
+    <h3>Bio: <span class="info"><%= user.bio%></span></h3>
+    <button type="submit" class="btn">Submit</button>
+  </form>
+  <% } else { %>
+<%- include('../partials/footer') %>
