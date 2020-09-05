@@ -48,7 +48,6 @@ function index(req, res) {
 function deleteNote(req, res) {
   User.findById(req.user._id, function (err, user) {
     let topic = user.topics.id(req.params.topicId);
-    console.log('----topic------',topic)
     topic.contents.forEach(content => {
       if (content.id === req.params.contentId) {
         content.notes.forEach((note, idx) => {
@@ -65,7 +64,6 @@ function deleteNote(req, res) {
 }
 
 function update(req, res) {
-  console.log('update route hit!', req.body)
   User.findById(req.user._id, function (err, user) {
     let topic = user.topics.id(req.params.topicId);
     topic.contents.forEach(content => {

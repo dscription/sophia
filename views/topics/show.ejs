@@ -14,12 +14,10 @@
       <div class="card">
         <div class="card-content">
           <form action="/topics/<%=topicId%>?_method=PUT" method="POST">
-
             <h2>What is your end goal for studying <%=title%>?</h2>
             <input type="text" name="goal" placeholder="Write goal here">
             <h2>Do you have an end date in mind?</h2>
             <input type="date" name="goalDate">
-
             <button type="submit" class="btn">Submit</button>
           </form>
         </div>
@@ -27,7 +25,6 @@
       <% } else { %>
       <h3>Goal: <span class="info"><%=topic.goal %></span></h3>
       <h3><i class="material-icons">today</i> <span class="info"><%=topic.goalDate.toLocaleString()%></span> </h3>
-
       <div class="card">
         <div class="card-content">
           <h3>Add Lesson</h3>
@@ -37,7 +34,7 @@
             <label for="addContentLink">Content Link</label>
             <input type="text" name="link" id="addContentLink">
             <div class="input-field col s12">
-            <label for="contentType">Content Type</label>
+              <label for="contentType">Content Type</label>
               <select name="method" id="contentType" multiple>
                 <option value="book">Book</option>
                 <option value="video">Video</option>
@@ -50,11 +47,10 @@
         </div>
       </div>
       <%}%>
-
-        <section>
-          <h2>In Progress</h2>
-          <ul class="collapsible">
-            <%topic.contents.forEach(content => { %>
+      <section>
+        <h2>In Progress</h2>
+        <ul class="collapsible">
+          <%topic.contents.forEach(content => { %>
       <%if (!content.completed) {%>
       <li>
         <div class="collapsible-header">
@@ -79,7 +75,8 @@
           <%} else { %>
           <h3><i class="material-icons">collections_bookmark</i> <%=content.method%></h3>
           <%}%>
-            <h3><i class="material-icons">insert_link</i><a href="<%-content.link%>" target=_blank"><%=content.link%></a></h3>
+            <h3><i class="material-icons">insert_link</i><a href="<%-content.link%>"
+          target=_blank"><%=content.link%></a></h3>
           <%if(content.notes.length === 0){%>
           <h3>No notes to show</h3>
           <%} else {%>
@@ -90,7 +87,8 @@
               <%-markdown.render(note.title)%>
               <%-markdown.render(note.text)%>
               <div id="button-row"></div>
-              <a href="/topic/<%=topicId%>/content/<%=content._id%>/notes/<%=note._id%>/updateView" class="btn">Update Note</a>
+              <a href="/topic/<%=topicId%>/content/<%=content._id%>/notes/<%=note._id%>/updateView" class="btn">Update
+                Note</a>
               <a href="/topic/<%=topicId%>/content/<%=content._id%>/notes/<%=note._id%>/remove" class="btn">Delete
                 Note</a>
               <%})%>

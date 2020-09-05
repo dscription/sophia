@@ -22,7 +22,6 @@ function index(req, res) {
 
 function create(req, res) {
   User.findById(req.user._id, function (err, user) {
-    console.log('req.body on create --------',typeof(req.body.name))
     if (typeof(req.body.name) === 'string') {
       user.topics.push(req.body)
     } else {
@@ -83,7 +82,6 @@ function setVisibility(req, res) {
 }
 
 function setOpenStatus(req, res) {
-  console.log('set status route hit')
   User.findById(req.user.id, function (err, user) {
     const topic = user.topics.id(req.params.id);
     topic.isOpen = !topic.isOpen;

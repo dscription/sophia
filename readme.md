@@ -30,7 +30,7 @@ I have spent my professional career as a personal trainer and entrepreneur, yet 
 - AAU, I should be able to mark how effective a piece of content was for me.
 
 ## Stretch Goals:
-- Add a news feed
+- Add a more robust news feed
 - Search and Add a YouTube video to content list.
 - Scan a books barcode and scrape the table of contents.
 - Search and Add Medium Articles to content list.
