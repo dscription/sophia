@@ -1,7 +1,12 @@
 # Sophia - A Life Long Learning Application (working title for unit 2 project)
 
+## Deploy Link
+http://sophia-version-0.herokuapp.com/
+
 ## Project Inspiration
 I have spent my professional career as a personal trainer and entrepreneur, yet I consider myself to be a Polymath. I have always been curious about many things and felt the need to always be learning something interesting and new. I learn by reading books and articles, watching youtube videos, and taking online courses. I enjoy spending my time learning but  find that he I am not as organized or disciplined as I would like to be. I keep journal which helps bring me clarity for short periods of time, but then lose track of what I am learning, or starts focusing in on one topic and then lose sight of my other interests. I wants to be able to house all of his interests in one place so I can keep my interests on top of mind and not lose sight of what I have commited to learn.
+
+
 
 ## Technologies Used
 - HTML, CSS, JavaScript
@@ -48,3 +53,11 @@ I have spent my professional career as a personal trainer and entrepreneur, yet 
 ## Wireframes
 ![Image of Wireframe 1](https://i.imgur.com/ehq6v0q.png)
 ![Image of Wireframe 2](https://i.imgur.com/CokdRRn.png)
+
+## Screenshots
+![Screenshot 1](https://i.imgur.com/cVk9VA1.png)
+![Screenshot 2](https://i.imgur.com/D6Erq0B.png)
+
+## Trello Board
+https://trello.com/b/PW55AA3D/unit-2-project-sophia
+
